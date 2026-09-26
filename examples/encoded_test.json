@@ -1,0 +1,417 @@
+{
+  "title": "test",
+  "episode": "99: Test Fair",
+  "cast": [
+    "",
+    "Ann",
+    "Bo"
+  ],
+  "main_characters": [
+    "Ann"
+  ],
+  "genders": {
+    "Ann": "F",
+    "Bo": "M"
+  },
+  "entry": "s1",
+  "scene_entries": {
+    "1": "s1",
+    "2": "s2"
+  },
+  "scene_minigame_banks": {
+    "1": {},
+    "2": {}
+  },
+  "section_dispatch": {
+    "1": {
+      "register": null,
+      "valid_values": [],
+      "cases": []
+    }
+  },
+  "minigame_results": {
+    "1": {
+      "gates": [
+        {
+          "trigger": "600",
+          "gate": "612",
+          "pass_at": "615",
+          "fail_at": "645",
+          "win_threshold": "3",
+          "kind": "content_fork",
+          "via": "action",
+          "minigame_id": null
+        }
+      ]
+    }
+  },
+  "minigame_scoring": {},
+  "segments": {
+    "s1_02_win": {
+      "nodes": [
+        {
+          "type": "narration",
+          "text": "Perfect batch.",
+          "character_id": "0",
+          "offset": "622"
+        },
+        {
+          "type": "var_add",
+          "var": "2000",
+          "value": 20,
+          "offset": "639"
+        },
+        {
+          "type": "next",
+          "next": "s1_03_lose"
+        }
+      ]
+    },
+    "s1_03_lose": {
+      "nodes": [
+        {
+          "type": "narration",
+          "text": "Evening comes.",
+          "character_id": "0",
+          "offset": "739"
+        },
+        {
+          "type": "goto_scene",
+          "file": "s2",
+          "offset": "746"
+        }
+      ]
+    },
+    "s1_01_after": {
+      "nodes": [
+        {
+          "type": "minigame",
+          "minigame_type": "content_fork",
+          "kind": "content_fork",
+          "minigame_id": null,
+          "via": "action",
+          "trigger": "600",
+          "win_threshold": "3",
+          "offset": "612",
+          "win": "s1_02_win",
+          "lose": "s1_03_lose"
+        }
+      ]
+    },
+    "s1_04_opt0": {
+      "nodes": [
+        {
+          "type": "dialogue",
+          "speaker": "Bo",
+          "emotion_code": null,
+          "image": "2010",
+          "text": "Cookies it is.",
+          "character_id": "2",
+          "offset": "572"
+        },
+        {
+          "type": "minigame",
+          "minigame_type": "pick_word",
+          "kind": "action",
+          "prompt": "Make your choice! Pick the ingredients! Ann",
+          "options": [
+            [
+              "Flour!",
+              "Sugar!",
+              "Butter!"
+            ],
+            [
+              "Gravel!",
+              "Soap!",
+              "Ink!"
+            ]
+          ],
+          "win_threshold": "3",
+          "offset": "600"
+        },
+        {
+          "type": "narration",
+          "text": "Burnt to a crisp.",
+          "character_id": "0",
+          "offset": "652"
+        },
+        {
+          "type": "var_add",
+          "var": "2000",
+          "value": 5,
+          "offset": "669"
+        },
+        {
+          "type": "next",
+          "next": "s1_01_after"
+        }
+      ]
+    },
+    "s1_05_opt1": {
+      "nodes": [
+        {
+          "type": "dialogue",
+          "speaker": "Ann",
+          "emotion_code": null,
+          "image": "2001",
+          "text": "Lemonade stand, go!",
+          "character_id": "1",
+          "offset": "688"
+        },
+        {
+          "type": "var_add",
+          "var": "2000",
+          "value": 10,
+          "offset": "705"
+        },
+        {
+          "type": "next",
+          "next": "s1_01_after"
+        }
+      ]
+    },
+    "s1_06_opt2": {
+      "nodes": [
+        {
+          "type": "dialogue",
+          "speaker": "Bo",
+          "emotion_code": null,
+          "image": "2010",
+          "text": "Zzz...",
+          "character_id": "2",
+          "offset": "726"
+        },
+        {
+          "type": "next",
+          "next": "s1_01_after"
+        }
+      ]
+    },
+    "s1": {
+      "nodes": [
+        {
+          "type": "title_card",
+          "title": "Test Fair",
+          "subtitle": "Can we raise the money?",
+          "asset_id": "0",
+          "flag": "0",
+          "offset": "477"
+        },
+        {
+          "type": "background",
+          "style": "standard",
+          "asset_id": "1004",
+          "variant": "0",
+          "offset": "489"
+        },
+        {
+          "type": "music",
+          "track_id": "8201",
+          "loop": false,
+          "offset": "496"
+        },
+        {
+          "type": "dialogue",
+          "speaker": "Ann",
+          "emotion_code": null,
+          "image": "2001",
+          "text": "Morning! Ready for the fair?",
+          "character_id": "1",
+          "offset": "505"
+        },
+        {
+          "type": "dialogue",
+          "speaker": "Bo",
+          "emotion_code": null,
+          "image": "2010",
+          "text": "Barely. Where is the money jar?",
+          "character_id": "2",
+          "offset": "514"
+        },
+        {
+          "type": "narration",
+          "text": "The jar sits on the counter.",
+          "character_id": "0",
+          "offset": "524"
+        },
+        {
+          "type": "var_set",
+          "var": "2000",
+          "value": 0,
+          "offset": "533"
+        },
+        {
+          "type": "choice",
+          "prompt": "What should we do first?",
+          "options": [
+            {
+              "index": "0",
+              "label": "Bake cookies",
+              "next": "s1_04_opt0"
+            },
+            {
+              "index": "1",
+              "label": "Sell lemonade",
+              "next": "s1_05_opt1"
+            },
+            {
+              "index": "2",
+              "label": "Nap",
+              "next": "s1_06_opt2"
+            }
+          ],
+          "menu": {
+            "title": "What should we do first?",
+            "text": null,
+            "timeout_ms": "-1",
+            "timeout_result": "-1",
+            "character_id": "-2",
+            "reserved": "-1",
+            "portrait_mode": "1"
+          },
+          "after": "s1_01_after"
+        }
+      ]
+    },
+    "s2_01_var2000_eq20": {
+      "nodes": [
+        {
+          "type": "next",
+          "next": "s2_01_var2000_eq20_bg231_1"
+        }
+      ]
+    },
+    "s2_02_else": {
+      "nodes": [
+        {
+          "type": "narration",
+          "text": "Not enough money. Try again...",
+          "character_id": "0",
+          "offset": "254"
+        },
+        {
+          "type": "next",
+          "next": "s2_02_else_cont"
+        }
+      ]
+    },
+    "s2": {
+      "nodes": [
+        {
+          "type": "dialogue",
+          "speaker": "Ann",
+          "emotion_code": null,
+          "image": "2001",
+          "text": "We made it to the fair!",
+          "character_id": "1",
+          "offset": "217"
+        },
+        {
+          "type": "gate",
+          "var": "2000",
+          "equals": "20",
+          "op": "gte",
+          "offset": "231",
+          "then": "s2_01_var2000_eq20",
+          "else": "s2_02_else"
+        }
+      ]
+    },
+    "s2_02_else_cont": {
+      "nodes": [
+        {
+          "type": "dialogue",
+          "speaker": "Bo",
+          "emotion_code": null,
+          "image": "2010",
+          "text": "See you next year.",
+          "character_id": "2",
+          "offset": "263"
+        },
+        {
+          "type": "end"
+        }
+      ]
+    },
+    "s2_01_var2000_eq20_bg231_r": {
+      "nodes": [
+        {
+          "type": "next",
+          "next": "s2_02_else_cont"
+        }
+      ]
+    },
+    "s2_01_var2000_eq20_bg231_t": {
+      "nodes": [
+        {
+          "type": "narration",
+          "text": "You earned enough. Well done!",
+          "character_id": "0",
+          "offset": "241"
+        },
+        {
+          "type": "next",
+          "next": "s2_01_var2000_eq20_bg231_r"
+        }
+      ]
+    },
+    "s2_01_var2000_eq20_bg231_1": {
+      "nodes": [
+        {
+          "type": "gate",
+          "var": "2000",
+          "equals": "20",
+          "then": "s2_01_var2000_eq20_bg231_t",
+          "else": "s2_01_var2000_eq20_bg231_r",
+          "offset": "231",
+          "op": "gte"
+        }
+      ]
+    }
+  },
+  "pack_id": "0",
+  "episode_id": "0",
+  "scene_setup": {
+    "1": {
+      "characters": [
+        {
+          "id": "1",
+          "name": "Ann",
+          "format": 0,
+          "art": "2001"
+        },
+        {
+          "id": "2",
+          "name": "Bo",
+          "format": 0,
+          "art": "2010"
+        }
+      ],
+      "ui_defaults": {}
+    },
+    "2": {
+      "characters": [
+        {
+          "id": "1",
+          "name": "Ann",
+          "format": 0,
+          "art": "2001"
+        },
+        {
+          "id": "2",
+          "name": "Bo",
+          "format": 0,
+          "art": "2010"
+        }
+      ],
+      "ui_defaults": {}
+    }
+  },
+  "routines": {},
+  "variable_defaults": {
+    "values": {
+      "2000": 0
+    },
+    "set_only": []
+  }
+}

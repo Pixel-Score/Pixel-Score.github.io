@@ -1,6 +1,6 @@
 {
  "title": "legacy",
- "episode": "98: Legacy Test",
+ "episode": "97: Legacy Test",
  "main_characters": [
   "Kim"
  ],
@@ -47,8 +47,7 @@
        "text": "Andy leaves.",
        "offset": "12070"
       }
-     ],
-     "note": "Dialogue for all options plays out in script order"
+     ]
     },
     {
      "type": "goto_scene",
@@ -56,25 +55,7 @@
      "to_scene": "2",
      "offset": "12100"
     }
-   ],
-   "control_flow": {
-    "branches": [
-     {
-      "offset": "12080",
-      "op": "0x2b",
-      "operand": "12",
-      "compared": [
-       "3"
-      ]
-     }
-    ],
-    "var_reads": [
-     {
-      "offset": "12090",
-      "value": "2001"
-     }
-    ]
-   }
+   ]
   },
   {
    "scene": "6",
@@ -82,10 +63,6 @@
    "name": "andy_encounter",
    "protagonist": "Kim",
    "source": "observed",
-   "region": [
-    "12183",
-    "12576"
-   ],
    "gate": {
     "event": "end_of_day",
     "day": "5",
@@ -145,7 +122,7 @@
     },
     {
      "type": "goto_scene",
-     "to_scene": "5"
+     "to_scene": "2"
     }
    ]
   },
@@ -158,54 +135,6 @@
      "type": "narration",
      "text": "Scene two.",
      "offset": "50"
-    }
-   ]
-  },
-  {
-   "scene": "5",
-   "script": "0x61ad",
-   "protagonist": "Kim",
-   "nodes": [
-    {
-     "type": "narration",
-     "text": "Day hub.",
-     "offset": "60"
-    },
-    {
-     "type": "choice",
-     "prompt": "Which ending?",
-     "options": [
-      {
-       "index": "0",
-       "label": "A"
-      },
-      {
-       "index": "1",
-       "label": "B"
-      }
-     ],
-     "outcomes": [
-      {
-       "index": "0",
-       "ends_with_retry_prompt": true,
-       "lines": [
-        {
-         "type": "narration",
-         "text": "Bad end. Try again..."
-        }
-       ]
-      },
-      {
-       "index": "1",
-       "ends_with_retry_prompt": false,
-       "lines": [
-        {
-         "type": "narration",
-         "text": "Good end."
-        }
-       ]
-      }
-     ]
     }
    ]
   }

@@ -15,6 +15,8 @@
   <button class="icon-btn only-narrow" id="toggleSide" aria-label="Show side panel" title="Side panel">☰</button>
   <h1 class="brand">SHS Story Map</h1>
   <div class="bar-group">
+    <label class="sr" for="gameSelect">Game</label>
+    <select id="gameSelect" title="Game" hidden></select>
     <label class="sr" for="epSelect">Episode</label>
     <select id="epSelect" title="Episode"><option value="">Choose an episode…</option></select>
     <label class="btn" title="Open a decoded episode JSON from your computer">
@@ -27,12 +29,15 @@
       <button data-view="scene" aria-pressed="false">Scene flow</button>
       <button data-view="all" aria-pressed="false">Everything</button>
     </div>
-    <label class="sr" for="sceneSelect">Scene</label>
-    <select id="sceneSelect" title="Scene"></select>
+    <label class="sr" for="sceneSelect">Scene or routine</label>
+    <select id="sceneSelect" title="Scene or routine"></select>
   </div>
   <div class="bar-group right">
     <label class="check" title="Show backgrounds, music, sound and other presentation cues">
       <input type="checkbox" id="cuesToggle"> Cues
+    </label>
+    <label class="check" title="Show routines (exact code lifted from the bytecode) in the scene map and Everything view">
+      <input type="checkbox" id="routinesToggle" checked> Routines
     </label>
     <label class="sr" for="capSelect">Lines per node</label>
     <select id="capSelect" title="Lines shown per node">
@@ -67,7 +72,7 @@
     </div>
     <div class="empty" id="empty">
       <h2>Drop a decoded episode here</h2>
-      <p>Drag an episode <code>.json</code> from <code>shs_decoder.py</code> onto this page, use <em>Open JSON</em>, or list your episodes in <code>episodes/index.json</code> so they appear in the picker.</p>
+      <p>Drag an episode <code>.json</code> from <code>shs_decoder.py --format json</code> onto this page, use <em>Open JSON</em>, or list your episodes in <code>episodes/index.json</code> so they appear in the picker.</p>
       <p class="err" id="loadErr" role="alert"></p>
     </div>
     <div class="legend collapsed" id="legend">

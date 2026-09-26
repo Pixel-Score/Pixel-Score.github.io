@@ -1,0 +1,29 @@
+{"title":"99: Test Fair","cast":["","Ann","Bo"],
+ "characters":{"Ann":{"art":2001,"gender":"female"},"Bo":{"art":2010,"gender":"male"}},
+ "scenes":[
+ {"id":1,"nodes":[
+  {"type":"title_card","text":"Test Fair","subtitle":"Can we raise the money?"},
+  {"type":"background","id":1004},{"type":"music","id":8201},
+  {"type":"say","speaker":"Ann","text":"Morning! Ready for the fair?"},
+  {"type":"say","speaker":"Bo","text":"Barely. Where is the money jar?"},
+  {"type":"narrate","text":"The jar sits on the counter."},
+  {"type":"set","var":"2000","value":0},
+  {"type":"choice","prompt":"What should we do first?","options":[
+     {"label":"Bake cookies","body":[
+        {"type":"say","speaker":"Bo","text":"Cookies it is."},
+        {"type":"minigame","minigame_type":"pick_word","prompt":"Pick the ingredients!",
+         "correct":["Flour!","Sugar!","Butter!"],"decoys":["Gravel!","Soap!","Ink!"],"win_threshold":3,
+         "speaker":"Bo",
+         "win":[{"type":"narrate","text":"Perfect batch."},{"type":"add","var":"2000","value":20}],
+         "lose":[{"type":"narrate","text":"Burnt to a crisp."},{"type":"add","var":"2000","value":5}]}]},
+     {"label":"Sell lemonade","body":[{"type":"say","speaker":"Ann","text":"Lemonade stand, go!"},{"type":"add","var":"2000","value":10}]},
+     {"label":"Nap","body":[{"type":"say","speaker":"Bo","text":"Zzz..."}]}]},
+  {"type":"narrate","text":"Evening comes."},
+  {"type":"goto","scene":2}]},
+ {"id":2,"nodes":[
+  {"type":"say","speaker":"Ann","text":"We made it to the fair!"},
+  {"type":"gate","var":"2000","op":"gte","value":20,
+   "then":[{"type":"narrate","text":"You earned enough. Well done!"}],
+   "else":[{"type":"narrate","text":"Not enough money. Try again..."}]},
+  {"type":"say","speaker":"Bo","text":"See you next year."}]}
+]}

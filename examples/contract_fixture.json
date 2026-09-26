@@ -1,0 +1,644 @@
+{
+ "title": "contract_fixture",
+ "episode": "98: Contract Fixture",
+ "cast": [
+  "",
+  "Zoe",
+  "Sam"
+ ],
+ "main_characters": [
+  "Zoe"
+ ],
+ "entry": "s1",
+ "scene_entries": {
+  "1": "s1",
+  "2": "s2",
+  "3": "s3_ir"
+ },
+ "ir_scenes": [
+  "3"
+ ],
+ "routines": {
+  "s3_main": {
+   "entry": "s3_main_b0",
+   "params": 0,
+   "offset": "0"
+  },
+  "s3_r50": {
+   "entry": "s3_r50_b0",
+   "params": 2,
+   "offset": "500"
+  }
+ },
+ "section_dispatch": {
+  "2": {
+   "register": "1001",
+   "valid_values": [
+    "0",
+    "3"
+   ],
+   "entry_by_value": {
+    "3": "s2_enter_v3"
+   }
+  }
+ },
+ "scene_setup": {
+  "1": {
+   "characters": [
+    {
+     "id": "1",
+     "name": "Zoe",
+     "art": "2001",
+     "format": 0
+    },
+    {
+     "id": "2",
+     "name": "Sam",
+     "art": "2010",
+     "format": 0
+    }
+   ],
+   "ui_defaults": {
+    "75": "0"
+   }
+  },
+  "2": {
+   "characters": [],
+   "ui_defaults": {}
+  },
+  "3": {
+   "characters": [],
+   "ui_defaults": {}
+  }
+ },
+ "variable_defaults": {
+  "values": {
+   "1001": 0,
+   "2000": 0,
+   "2001": 0,
+   "2002": 0,
+   "3900": 0
+  },
+  "set_only": [
+   "3900"
+  ]
+ },
+ "name_vars": {
+  "$ZOE": {
+   "default": "Zoe",
+   "from_player_input": true
+  }
+ },
+ "segments": {
+  "s1": {
+   "nodes": [
+    {
+     "type": "title_card",
+     "title": "Contract Test",
+     "subtitle": "Every node kind",
+     "offset": "100"
+    },
+    {
+     "type": "string_default",
+     "key": "$ZOE",
+     "default": "Zoe",
+     "slot": -1
+    },
+    {
+     "type": "dialogue",
+     "speaker": "Zoe",
+     "character_id": "0",
+     "text": "Which day is it?",
+     "offset": "120",
+     "mode": "-2"
+    },
+    {
+     "type": "var_set",
+     "var": "2001",
+     "expr": {
+      "op": "+",
+      "a": {
+       "var": 2001
+      },
+      "b": 1
+     },
+     "offset": "130"
+    },
+    {
+     "type": "dispatch",
+     "state_var": "2001",
+     "arms": [
+      {
+       "equals": "1",
+       "scene": "s1_day1"
+      },
+      {
+       "equals": "2",
+       "scene": "s1_day2"
+      }
+     ],
+     "default": "s1_rand"
+    }
+   ]
+  },
+  "s1_day1": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "Day one. The quiz.",
+     "offset": "200"
+    },
+    {
+     "type": "choice",
+     "prompt": "Hurry!",
+     "timed": true,
+     "timer_ms": "3000",
+     "text": "Catch the books!",
+     "options": [
+      {
+       "index": "0",
+       "label": "Catch!",
+       "next": "s1_catch"
+      },
+      {
+       "index": "1",
+       "label": "Duck!",
+       "next": "s1_duck",
+       "when": [
+        {
+         "var": "2002",
+         "op": "ne",
+         "value": "1"
+        }
+       ]
+      }
+     ],
+     "on_timeout": "s1_duck",
+     "after": "s1_merge"
+    }
+   ]
+  },
+  "s1_catch": {
+   "nodes": [
+    {
+     "type": "dialogue",
+     "speaker": "Sam",
+     "character_id": "2",
+     "text": "Nice catch!",
+     "expression": "3",
+     "offset": "230"
+    },
+    {
+     "type": "call",
+     "segment": "s1_praise",
+     "offset": "240"
+    },
+    {
+     "type": "next",
+     "next": "s1_merge"
+    }
+   ]
+  },
+  "s1_praise": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "Everyone claps.",
+     "offset": "900"
+    },
+    {
+     "type": "var_add",
+     "var": "2000",
+     "value": 5,
+     "offset": "905"
+    },
+    {
+     "type": "return"
+    }
+   ]
+  },
+  "s1_duck": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "The books hit the floor.",
+     "offset": "260"
+    },
+    {
+     "type": "next",
+     "next": "s1_merge"
+    }
+   ]
+  },
+  "s1_merge": {
+   "nodes": [
+    {
+     "type": "status",
+     "text": "Zoe has %d points.",
+     "dynamic": true,
+     "format": {
+      "pattern": "Zoe has %d points.",
+      "args": [
+       {
+        "op": "*",
+        "a": {
+         "var": 2000
+        },
+        "b": 5
+       }
+      ]
+     },
+     "offset": "300"
+    },
+    {
+     "type": "minigame",
+     "minigame_type": "pick_word",
+     "kind": "content_fork",
+     "via": "action",
+     "win_threshold": "3",
+     "prompt": "Pick the smart words!",
+     "options": [
+      [
+       "Clever!",
+       "Wise!"
+      ],
+      [
+       "Dim!",
+       "Dull!",
+       "Slow!"
+      ]
+     ],
+     "win": "s1_win",
+     "lose": "s1_lose",
+     "offset": "320"
+    }
+   ]
+  },
+  "s1_win": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "You pass!",
+     "offset": "340"
+    },
+    {
+     "type": "goto_scene",
+     "file": "s2",
+     "section_register": {
+      "var": "1001",
+      "value": "3"
+     },
+     "offset": "350"
+    }
+   ]
+  },
+  "s1_lose": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "You have failed.",
+     "offset": "360"
+    },
+    {
+     "type": "choice",
+     "prompt": "Make your choice!",
+     "options": [
+      {
+       "index": "0",
+       "label": "Replay from checkpoint.",
+       "next": "s1_replay"
+      },
+      {
+       "index": "1",
+       "label": "Restart episode.",
+       "next": "s1"
+      }
+     ]
+    }
+   ]
+  },
+  "s1_replay": {
+   "nodes": [
+    {
+     "type": "var_set",
+     "var": "2000",
+     "value": 0,
+     "source": "checkpoint_reset"
+    },
+    {
+     "type": "checkpoint_replay",
+     "next": "s1_day1"
+    }
+   ]
+  },
+  "s1_day2": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "Day two. The fight.",
+     "offset": "400"
+    },
+    {
+     "type": "call",
+     "routine": "s3_r50",
+     "args": [
+      3,
+      {
+       "text": "Travis"
+      }
+     ],
+     "result_var": "3900",
+     "offset": "410"
+    },
+    {
+     "type": "gate",
+     "var": "3900",
+     "equals": "1",
+     "op": "eq",
+     "then": "s1_won",
+     "else": "s1_lose",
+     "offset": "420"
+    }
+   ]
+  },
+  "s1_won": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "Travis goes down!",
+     "offset": "430"
+    },
+    {
+     "type": "goto_scene",
+     "file": "s2_enter_v3",
+     "offset": "440"
+    }
+   ]
+  },
+  "s1_rand": {
+   "nodes": [
+    {
+     "type": "random",
+     "options": [
+      {
+       "scene": "s1_day1"
+      },
+      {
+       "scene": "s1_day2"
+      }
+     ],
+     "exhausted": "s1_end"
+    }
+   ]
+  },
+  "s1_end": {
+   "nodes": [
+    {
+     "type": "score_tier",
+     "var": "2000",
+     "tiers": [
+      {
+       "rank": "Your rank for this episode is: Rookie",
+       "op": "lte",
+       "threshold": "19"
+      },
+      {
+       "rank": "Your rank for this episode is: Pro",
+       "op": "lte",
+       "threshold": "59"
+      }
+     ],
+     "default": {
+      "banner": "You got the `perfect` score!",
+      "rank": "Your rank for this episode is: Star"
+     }
+    },
+    {
+     "type": "end_card",
+     "text": "Thanks for playing!"
+    },
+    {
+     "type": "end"
+    }
+   ]
+  },
+  "s2": {
+   "nodes": [
+    {
+     "type": "narration",
+     "text": "Scene two opens.",
+     "offset": "10"
+    },
+    {
+     "type": "end"
+    }
+   ]
+  },
+  "s2_enter_v3": {
+   "nodes": [
+    {
+     "type": "var_add",
+     "var": "2001",
+     "value": 1,
+     "offset": "5"
+    },
+    {
+     "type": "narration",
+     "text": "Back at the gym.",
+     "offset": "50"
+    },
+    {
+     "type": "end"
+    }
+   ]
+  },
+  "s3_ir": {
+   "nodes": [
+    {
+     "type": "call",
+     "routine": "s3_main",
+     "args": []
+    },
+    {
+     "type": "end"
+    }
+   ]
+  },
+  "s3_main_b0": {
+   "nodes": [
+    {
+     "type": "yield",
+     "yield": 45,
+     "name": "get_number",
+     "args": [
+      1001
+     ],
+     "to": 0
+    },
+    {
+     "type": "if",
+     "cond": {
+      "op": "==",
+      "a": {
+       "local": 0
+      },
+      "b": 2
+     },
+     "then": "s3_main_b5",
+     "else": "s3_main_b9"
+    }
+   ]
+  },
+  "s3_main_b5": {
+   "nodes": [
+    {
+     "type": "yield",
+     "yield": 13,
+     "name": "dialogue",
+     "args": [
+      {
+       "text": "Round two, $ZOE!"
+      },
+      2,
+      -1
+     ],
+     "speaker": "Sam"
+    },
+    {
+     "type": "ret"
+    }
+   ]
+  },
+  "s3_main_b9": {
+   "nodes": [
+    {
+     "type": "yield",
+     "yield": 65,
+     "name": "narration",
+     "args": [
+      0,
+      {
+       "text": "Nothing happens."
+      },
+      -1
+     ]
+    },
+    {
+     "type": "ret"
+    }
+   ]
+  },
+  "s3_r50_b0": {
+   "nodes": [
+    {
+     "type": "let",
+     "to": {
+      "local": 0
+     },
+     "value": {
+      "local": -3
+     }
+    },
+    {
+     "type": "yield",
+     "yield": 0,
+     "name": "format",
+     "args": [
+      {
+       "text": "%s has %d life left!"
+      },
+      {
+       "local": -2
+      },
+      {
+       "local": 0
+      }
+     ],
+     "to": 1
+    },
+    {
+     "type": "yield",
+     "yield": 65,
+     "name": "narration",
+     "args": [
+      0,
+      {
+       "local": 1
+      },
+      -1
+     ],
+     "speaker": "Narrator"
+    },
+    {
+     "type": "yield",
+     "yield": 27,
+     "name": "random_below",
+     "args": [
+      {
+       "deref": {
+        "op": "+",
+        "a": {
+         "table": [
+          {
+           "text": "You're going down!"
+          },
+          {
+           "text": "Take that!"
+          }
+         ]
+        },
+        "b": 0
+       }
+      }
+     ],
+     "to": 2
+    },
+    {
+     "type": "let",
+     "to": {
+      "local": 0
+     },
+     "value": {
+      "op": "-",
+      "a": {
+       "local": 0
+      },
+      "b": {
+       "op": "+",
+       "a": {
+        "local": 2
+       },
+       "b": 1
+      }
+     }
+    },
+    {
+     "type": "if",
+     "cond": {
+      "op": ">",
+      "a": {
+       "local": 0
+      },
+      "b": 0
+     },
+     "then": "s3_r50_b0",
+     "else": "s3_r50_b20"
+    }
+   ]
+  },
+  "s3_r50_b20": {
+   "nodes": [
+    {
+     "type": "let",
+     "to": {
+      "reg": "B"
+     },
+     "value": 1
+    },
+    {
+     "type": "ret"
+    }
+   ]
+  }
+ }
+}
