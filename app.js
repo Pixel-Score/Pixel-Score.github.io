@@ -714,21 +714,21 @@ function isCue(n) {
   return false;
 }
 
+// Only dead ends get a footer; every other way out is already drawn as a labelled arrow.
 function terminalText(m, seg) {
   const outs = m.out.get(seg.id) || [];
   const last = [...seg.nodes].reverse().find(isObj);
-  const kinds = new Set(outs.map(e => e.kind));
-  if (last && (last.type === 'return' || last.type === 'ret')) return 'Returns to caller';
-  if (!outs.length) return seg.end ? (last?.type === 'end' ? 'Scene ends' : 'Flow ends') : 'No further links';
-  if (kinds.has('win') || kinds.has('lose')) return 'Minigame result decides';
-  if (kinds.has('case')) return 'Dispatches on a variable';
-  if (kinds.has('random')) return 'Random pick';
-  if (kinds.has('then')) return `Checks ${trunc(outs.find(e => e.cond)?.cond || 'a condition', 40)}`;
-  if (kinds.has('option')) return `${outs.filter(e => e.kind === 'option').length} choice links`;
-  if (kinds.has('goto')) return `Goes to ${outs.find(e => e.kind === 'goto').label}`;
-  if (kinds.has('replay')) return 'Replays from checkpoint';
-  if (kinds.has('call') && outs.every(e => e.kind === 'call')) return 'Calls, then stops';
-  return 'Continues';
+  if (last && (last.type === 'return' || last.type === 'ret')) return 'Returns';
+  if (outs.length) return '';
+  return last?.type === 'end' ? 'Scene ends' : 'Ends';
+}
+
+// Nodes whose only job is to say where the flow goes next; the arrow out of the card says the same thing.
+function redundantInCard(n) {
+  if (!isObj(n)) return false;
+  if (['goto_scene', 'checkpoint_replay', 'dispatch', 'random', 'if', 'return', 'ret'].includes(n.type)) return true;
+  if (n.type === 'gate' && !Array.isArray(n.then)) return true;
+  return false;
 }
 
 function segCard(seg) {
@@ -737,16 +737,12 @@ function segCard(seg) {
   c.dataset.id = seg.id;
   const h = el('div', 'card-head');
   h.append(el('span', 'id', seg.id));
-  const lc = m.lineCount(seg);
-  h.append(el('span', 'meta', seg.routine ? `${seg.nodes.length} ops` : `${lc} ${lc === 1 ? 'line' : 'lines'}`));
+  // Scene/routine start badges repeat what the view and colour already say; keep the ones that add information.
+  const badges = seg.badges.filter(x => !/^Scene .* start$/.test(x.text) && x.cls !== 'routine');
+  badges.forEach(x => h.append(el('span', `badge ${x.cls}`, x.text)));
   c.append(h);
-  if (seg.badges.length) {
-    const b = el('div', 'badges');
-    seg.badges.forEach(x => b.append(el('span', `badge ${x.cls}`, x.text)));
-    c.append(b);
-  }
   const body = el('div', 'card-body');
-  const visible = seg.nodes.filter(n => state.showCues || !isCue(n));
+  const visible = seg.nodes.filter(n => (state.showCues || !isCue(n)) && !redundantInCard(n));
   const cap = state.cap || Infinity;
   let shown = 0, hidden = 0;
   for (const n of visible) {
@@ -754,10 +750,10 @@ function segCard(seg) {
     if (shown < cap || heavy) { body.append(renderNode(n, false, seg.ctx)); if (!heavy) shown++; }
     else hidden++;
   }
-  if (!visible.length) body.append(el('div', 'ln cue', seg.nodes.length ? `${seg.nodes.length} cues and links` : 'Empty segment'));
   if (hidden) body.append(el('div', 'more', `${hidden} more, open to read all`));
-  c.append(body);
-  c.append(el('div', 'card-foot', terminalText(m, seg)));
+  if (visible.length) c.append(body);
+  const end = terminalText(m, seg);
+  if (end) c.append(el('div', 'card-foot', end));
   return c;
 }
 
@@ -790,12 +786,10 @@ function sceneCard(sc) {
       if (spk) speakers.set(spk, (speakers.get(spk) || 0) + 1);
     });
   }
-  const stats = el('div', 'scene-stats');
-  [[lines, 'lines'], [choices, 'choices'], [games, 'minigames'], [gates, 'checks']].forEach(([v, l]) => {
-    const d = el('div'); d.append(el('b', null, String(v)), el('span', null, l)); stats.append(d);
-  });
-  b.append(stats);
-  if (sc.kind === 'routine') b.append(el('div', 'ln muted', `Exact code, ${sc.meta.params || 0} argument(s), from bytecode offset ${sc.meta.offset ?? '?'}`));
+  const plural = (v, w) => `${v} ${w}${v === 1 ? '' : 's'}`;
+  const stats = [[lines, 'line'], [choices, 'choice'], [games, 'minigame']].filter(([v]) => v).map(([v, w]) => plural(v, w));
+  if (sc.kind === 'routine' && parseInt(sc.meta.params, 10)) stats.unshift(plural(parseInt(sc.meta.params, 10), 'arg'));
+  if (stats.length) b.append(el('div', 'ln muted', stats.join(' · ')));
   if (sc.meta.gate) { const g = el('div', 'ln'); g.append(el('span', 'chip check', `Runs when ${fmtCond(sc.meta.gate)}`)); b.append(g); }
   const reg = sc.meta.setup?.characters?.map(x => x.name).filter(Boolean) || [];
   const top = reg.length ? reg : [...speakers.entries()].sort((a, b2) => b2[1] - a[1]).slice(0, 5).map(x => x[0]);
@@ -803,8 +797,8 @@ function sceneCard(sc) {
   const first = m.segs.get(sc.entry);
   const firstLine = first && first.nodes.find(n => isObj(n) && (n.type === 'dialogue' || n.type === 'narration'));
   if (firstLine) b.append(renderNode(firstLine));
-  c.append(b);
-  c.append(el('div', 'card-foot', `${sc.segIds.length} segments. Open ${sc.kind === 'routine' ? 'routine' : 'scene'} flow`));
+  if (b.childNodes.length) c.append(b);
+  c.title = `Open ${sc.kind === 'routine' ? 'routine' : 'scene'} flow (${sc.segIds.length} segments)`;
   return c;
 }
 
@@ -826,8 +820,9 @@ function buildGraph() {
       const g = agg.get(key); g.n++; g.inferred = g.inferred && !!e.inferred;
     }
     for (const g of agg.values()) {
-      const base = g.kind === 'goto' ? 'jump' : g.kind === 'call' ? 'calls' : (KINDS[g.kind]?.label || g.kind);
-      edges.push({ from: g.from, to: g.to, kind: g.kind, label: base + (g.n > 1 ? ' ×' + g.n : ''), inferred: g.inferred });
+      // Colour and dash already tell jumps from calls; only say how many links were merged into one arrow.
+      const base = g.kind === 'goto' || g.kind === 'call' ? '' : (KINDS[g.kind]?.label || g.kind);
+      edges.push({ from: g.from, to: g.to, kind: g.kind, label: g.n > 1 ? `${base} ×${g.n}`.trim() : base, inferred: g.inferred });
     }
     return { nodes, edges };
   }
@@ -856,6 +851,23 @@ function buildGraph() {
   }
   portals.forEach(p => nodes.push(p));
   return { nodes, edges };
+}
+
+// Short edge label for the graph. The card already shows option conditions/effects, call arguments and
+// minigame thresholds, and portal cards already name the scene, so the edge only says what tells links apart.
+function edgeText(e, g) {
+  if (state.view === 'overview') return e.label || '';
+  const toPortal = String(e.to).startsWith('out:') || String(e.from).startsWith('in:');
+  switch (e.kind) {
+    case 'next': case 'after': case 'mgafter': case 'call': return '';
+    case 'option': case 'fight': return trunc(str(e.label || ''), 28);
+    case 'win': return 'win';
+    case 'lose': return 'lose';
+    case 'timeout': return 'time up';
+    case 'replay': return 'replay';
+    case 'goto': return toPortal ? (e.register ? e.register.replace(/^ with /, '') : '') : trunc(str(e.label || ''), 40);
+    default: return trunc(str(e.label || ''), 36);
+  }
 }
 
 // ------------------------------------------------------------------ layout + draw
@@ -901,12 +913,11 @@ function render({ keepView = false } = {}) {
     c.style.visibility = 'hidden'; cards.set(n.id, c); frag.append(c);
   }
   const labels = g.edges.map(e => {
-    if (!e.label && !(e.effects && e.effects.length) && !e.guard) return null;
+    const text = edgeText(e, g);
+    if (!text) return null;
     const l = el('div', 'elabel');
     l.style.color = `var(${KINDS[e.kind]?.color || '--k-other'})`;
-    l.append(document.createTextNode(trunc(str(e.label || ''), 60)));
-    if (e.effects && e.effects.length) l.append(el('span', 'fx', e.effects.map(fmtEffect).join(', ')));
-    if (e.guard) l.append(el('span', 'fx', e.guard));
+    l.append(document.createTextNode(text));
     if (e.inferred) l.title = 'Inferred from layout, not an explicit link in the JSON';
     l.style.visibility = 'hidden'; frag.append(l);
     return l;
@@ -1105,8 +1116,8 @@ function renderSide() {
     const b = el('button', 'list-item');
     b.append(el('span', 't', sc.label));
     const lines = sc.segIds.reduce((a, id) => a + m.lineCount(m.segs.get(id)), 0);
-    b.append(el('span', 's', `${sc.segIds.length} segments, ${lines} lines` + (sc.meta.gate ? `, runs when ${fmtCond(sc.meta.gate)}` : '') +
-      (sc.kind === 'routine' ? `, ${sc.meta.params || 0} args` : '')));
+    b.append(el('span', 's', `${lines} ${lines === 1 ? 'line' : 'lines'}` + (sc.meta.gate ? `, runs when ${fmtCond(sc.meta.gate)}` : '') +
+      (sc.kind === 'routine' && +sc.meta.params ? `, ${sc.meta.params} args` : '')));
     b.setAttribute('aria-current', state.view === 'scene' && state.scene === sc.id ? 'true' : 'false');
     b.onclick = () => { state.view = 'scene'; state.scene = sc.id; state.sel = null; syncControls(); render(); renderSide(); writeHash(); closeSideNarrow(); };
     sp.append(b);
@@ -1150,7 +1161,7 @@ function renderSide() {
   const info = $('#epInfo');
   const nr = Object.keys(m.routines || {}).length;
   info.append(el('div', null, `${m.segs.size} segments, ${m.edges.length} links, ${[...m.scenes.values()].filter(g => g.kind !== 'routine').length} scenes` + (nr ? `, ${nr} routines.` : '.')));
-  if (m.raw.pack_id != null) info.append(el('div', null, `Pack ${m.raw.pack_id}, episode ${m.raw.episode_id ?? '?'}.`));
+  if (m.raw.pack_id != null && (+m.raw.pack_id || +m.raw.episode_id)) info.append(el('div', null, `Pack ${m.raw.pack_id}, episode ${m.raw.episode_id ?? '?'}.`));
   if (m.missing.length) info.append(el('div', null, `${m.missing.length} links point at segments that are not in the file.`));
   m.notes.forEach(n => info.append(el('div', 'note', n)));
 }
