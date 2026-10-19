@@ -1586,6 +1586,7 @@ function initEvents() {
     else if (e.key === '0') fit();
     else if (e.key === 'Escape') select(null);
     else if (e.key === '/') { e.preventDefault(); document.querySelector('.tabs [data-tab="search"]').click(); }
+    else if (e.key === '?') { e.preventDefault(); openHelp(); }
     else if (e.key.startsWith('Arrow') && document.activeElement === stage) {
       const d = 60; state.tx += e.key === 'ArrowLeft' ? d : e.key === 'ArrowRight' ? -d : 0;
       state.ty += e.key === 'ArrowUp' ? d : e.key === 'ArrowDown' ? -d : 0; applyTransform(); e.preventDefault();
@@ -1629,10 +1630,27 @@ function buildLegend() {
   ul.append(li);
 }
 
+// ------------------------------------------------------------------ how-to-use guide
+// Shown on the first visit (remembered in localStorage), and any time from the ? button or the ? key.
+const HELP_KEY = 'shs-map-help-seen';
+function openHelp() { const d = $('#helpDialog'); if (!d.open) { d.showModal(); $('#helpDone').focus(); } }
+function closeHelp() { const d = $('#helpDialog'); if (d.open) d.close(); }
+function initHelp() {
+  const d = $('#helpDialog');
+  $('#helpBtn').onclick = openHelp;
+  $('#helpClose').onclick = closeHelp;
+  $('#helpDone').onclick = closeHelp;
+  d.addEventListener('click', e => { if (e.target === d) closeHelp(); });   // click on the dimmed backdrop
+  d.addEventListener('close', () => { try { localStorage.setItem(HELP_KEY, '1'); } catch {} });
+  let seen = false;
+  try { seen = !!localStorage.getItem(HELP_KEY); } catch {}
+  if (!seen) openHelp();
+}
+
 // ------------------------------------------------------------------ boot
 (async function boot() {
   try { const t = localStorage.getItem('shs-map-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
-  buildLegend(); initEvents(); syncControls(); renderSide(); render();
+  buildLegend(); initEvents(); initHelp(); syncControls(); renderSide(); render();
   const eps = await loadManifest();
   const h = readHash();
   if (h.get('ep')) loadUrl(h.get('ep'), true);

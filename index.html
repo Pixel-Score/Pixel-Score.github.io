@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <header class="bar">
@@ -56,6 +56,7 @@
       <option value="0">All lines</option>
     </select>
     <button class="icon-btn" id="themeBtn" aria-label="Toggle light or dark theme" title="Theme">◐</button>
+    <button class="icon-btn" id="helpBtn" aria-label="How to use" title="How to use (?)">?</button>
   </div>
 </header>
 
@@ -106,7 +107,81 @@
   </aside>
 </div>
 
+<dialog class="help" id="helpDialog" aria-labelledby="helpTitle">
+  <div class="help-head">
+    <h2 id="helpTitle">How to use SHS Story Map</h2>
+    <button class="icon-btn" id="helpClose" aria-label="Close" title="Close (Esc)">×</button>
+  </div>
+  <div class="help-body">
+    <p class="help-lead">Each episode is drawn as a map: cards hold who speaks and what they say, and arrows show where
+      the story goes next, including choices, minigame wins and losses, and variable checks.</p>
+
+    <section>
+      <h3>1. Pick an episode</h3>
+      <ul>
+        <li>Click the <b>episode box</b> at the top to see every episode, grouped by game and season.</li>
+        <li>Type to narrow the list: part of a title (<code>prom</code>), a game (<code>cod</code>), or numbers
+          (<code>s2 4</code> = season 2, episode 4; <code>e10</code>).</li>
+        <li>Use the <b>game box</b> to show only Surviving High School or Cause of Death.</li>
+        <li>Have your own decoded file? Use <b>Open JSON</b> or drag the <code>.json</code> onto the page.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>2. Choose a view</h3>
+      <ul>
+        <li><b>Scene map</b>: one card per scene. Click a scene to open it.</li>
+        <li><b>Scene flow</b>: every step of one scene. Pick the scene from the box next to the view buttons or from the side panel.</li>
+        <li><b>Everything</b>: the whole episode in one picture.</li>
+        <li>Dashed boxes at the edge of a scene lead to other scenes. Click one to follow it.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>3. Read the map</h3>
+      <ul>
+        <li>Click a <b>card</b> to open its details: the full script, where it leads, what leads to it, and the raw JSON.</li>
+        <li>Click an <b>arrow's label</b> to jump to where it goes.</li>
+        <li>Arrow colours show the kind of link: choices, win, lose, checks, scene jumps. Open <b>Key</b> (bottom left) for the full list.</li>
+        <li>The side panel has <b>Scenes</b>, <b>Variables</b> (where each one is set and checked) and <b>Search</b> (every line of dialogue).</li>
+      </ul>
+    </section>
+
+    <section class="help-controls">
+      <h3>Mouse and touch</h3>
+      <table>
+        <tr><th>Pan</th><td>Drag the background, or scroll</td></tr>
+        <tr><th>Zoom</th><td><kbd>Ctrl</kbd> + scroll (<kbd>⌘</kbd> on Mac), pinch, or double-click the background</td></tr>
+        <tr><th>Fit to screen</th><td>The <b>⤢</b> button, bottom right</td></tr>
+        <tr><th>Details</th><td>Click a card; click it again or the background to close</td></tr>
+      </table>
+      <h3>Keyboard</h3>
+      <table>
+        <tr><th><kbd>+</kbd> <kbd>−</kbd></th><td>Zoom in and out</td></tr>
+        <tr><th><kbd>0</kbd></th><td>Fit the map to the screen</td></tr>
+        <tr><th><kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd></th><td>Pan, after clicking the map</td></tr>
+        <tr><th><kbd>/</kbd></th><td>Search the episode's lines</td></tr>
+        <tr><th><kbd>Esc</kbd></th><td>Close details or this guide</td></tr>
+        <tr><th><kbd>?</kbd></th><td>Show this guide again</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h3>Options</h3>
+      <ul>
+        <li><b>Cues</b>: also show backgrounds, music and sound effects.</li>
+        <li><b>Routines</b>: show or hide scenes kept as exact game code (blue-green cards).</li>
+        <li><b>Lines per node</b>: how much dialogue each card shows before "more".</li>
+        <li><b>◐</b> switches light and dark. The address bar always points at what you're looking at, so you can share it.</li>
+      </ul>
+    </section>
+  </div>
+  <div class="help-foot">
+    <button class="btn primary" id="helpDone">Start exploring</button>
+  </div>
+</dialog>
+
 <script src="vendor/dagre.min.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>

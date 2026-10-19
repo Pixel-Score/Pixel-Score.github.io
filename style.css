@@ -108,7 +108,12 @@ select { max-width: 240px; }
 #epList mark { background: var(--hl); color: inherit; border-radius: 2px; padding: 0 1px; }
 #epList .none { padding: 10px 12px; color: var(--muted); }
 .ep-count { padding: 5px 12px 7px; border-top: 1px solid var(--card-edge); font-size: 12px; color: var(--muted); }
-@media (max-width: 700px) { .ep-btn { width: 200px; } }
+@media (max-width: 700px) {
+  .bar-group { flex-wrap: wrap; min-width: 0; max-width: 100%; }
+  #gameSelect { max-width: 120px; }
+  .ep-picker { flex: 1 1 140px; min-width: 0; }
+  .ep-btn { width: 100%; }
+}
 
 .icon-btn {
   width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--card-edge);
@@ -318,3 +323,41 @@ details pre { font-size: 11px; overflow: auto; max-height: 320px; background: va
   .legend { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .side { transition: none; } }
+
+/* ---------- how-to-use guide ---------- */
+dialog.help {
+  width: min(860px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0;
+  border: 1px solid var(--card-edge); border-radius: 10px; background: var(--card); color: var(--ink);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .28);
+}
+dialog.help[open] { display: flex; flex-direction: column; }
+dialog.help::backdrop { background: rgba(10, 20, 16, .45); }
+.help-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px 10px; border-bottom: 1px solid var(--line); }
+.help-head h2 { margin: 0; font: 700 24px/1.1 var(--f-label); }
+.help-head .icon-btn { margin-left: auto; }
+.help-body {
+  overflow-y: auto; padding: 12px 18px 6px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 28px; align-content: start;
+}
+.help-lead { grid-column: 1 / -1; margin: 0 0 4px; color: var(--muted); }
+.help h3 { margin: 8px 0 4px; font: 700 17px/1.2 var(--f-label); }
+.help ul { margin: 0 0 6px; padding-left: 18px; }
+.help li { margin: 3px 0; }
+.help-controls { grid-row: span 2; }
+.help table { border-collapse: collapse; width: 100%; margin-bottom: 6px; font-size: 14px; }
+.help th { text-align: left; font-weight: 600; white-space: nowrap; padding: 4px 12px 4px 0; vertical-align: top; }
+.help td { padding: 4px 0; color: var(--muted); }
+.help tr + tr > * { border-top: 1px solid color-mix(in srgb, var(--card-edge) 50%, transparent); }
+kbd {
+  display: inline-block; min-width: 1.6em; padding: 1px 5px; text-align: center;
+  font: 600 12px/1.4 var(--f-code); background: var(--code-bg); border: 1px solid var(--card-edge);
+  border-bottom-width: 2px; border-radius: 4px;
+}
+.help-foot { display: flex; justify-content: flex-end; padding: 10px 18px 14px; border-top: 1px solid var(--line); }
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; padding: 6px 16px; }
+.btn.primary:hover { opacity: .9; }
+@media (max-width: 760px) {
+  .help-body { grid-template-columns: 1fr; }
+  .help-controls { grid-row: auto; }
+  .help-head h2 { font-size: 20px; }
+}

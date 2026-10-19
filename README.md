@@ -37,6 +37,10 @@ hour per visitor), so the manifest step is optional there but still recommended.
 Opening `index.html` straight from disk works too, but browsers block `fetch` on `file://`, so the
 picker stays empty; use **Open JSON** or drag a file onto the page (or run `python3 -m http.server`).
 
+A short how-to guide opens on a visitor's first visit and any time from the **?** button or the `?` key.
+When you change `app.js` or `style.css`, bump the `?v=` number on their links in `index.html` so browsers
+fetch the new files instead of a cached copy.
+
 ## Views
 - **Scene map**: one card per scene and per lowered routine, with jumps and calls between them.
 - **Scene flow**: every segment of one scene or routine. Links that leave it end in a dashed portal
