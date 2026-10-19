@@ -1,1 +1,1628 @@
-[]
+[
+  {
+    "file": "SHS/10_1_300s_A_Crowd.json",
+    "title": "1: 300's A Crowd",
+    "pack_id": "1001",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/10_2_The_Contestants.json",
+    "title": "2: The Contestants",
+    "pack_id": "1001",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/10_3_SpartanGames1.json",
+    "title": "3: The Spartan Games, Part One",
+    "pack_id": "1001",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/10_4_The_Spartan_Games_Part_2.json",
+    "title": "4: The Spartan Games, Part 2",
+    "pack_id": "1001",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/10_5_The_Spartan_Games_3.json",
+    "title": "5: The Spartan Games, Part 3",
+    "pack_id": "1001",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/10_6_Eyesontheprize.json",
+    "title": "6: Eyes on the Prize",
+    "pack_id": "1001",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/10_7_faceplace_zero.json",
+    "title": "7: Faceplace Zero",
+    "pack_id": "1001",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/10_8_real_life_hero.json",
+    "title": "8: Real Life Hero",
+    "pack_id": "1001",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/10_The_Wrong_Side_of_Town.json",
+    "title": "10: The Wrong Side of Town",
+    "pack_id": "101",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/11_0_April_Fools.json",
+    "title": "Special: April Fools",
+    "pack_id": "7",
+    "episode_id": "2005"
+  },
+  {
+    "file": "SHS/11_1_Photo_Op.json",
+    "title": "1: Photo Op",
+    "pack_id": "1101",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/11_2_the_candidates.json",
+    "title": "2: The Candidates",
+    "pack_id": "1101",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/11_3_The_Endorsement.json",
+    "title": "3: The Endorsement",
+    "pack_id": "1101",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/11_4_The_Last_Straw.json",
+    "title": "4: The Last Straw",
+    "pack_id": "1101",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/11_5_The_Campaign_Trail.json",
+    "title": "5: The Campaign Trail",
+    "pack_id": "1101",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/11_6_Sara_The_TV_Star.json",
+    "title": "6: Sara The TV Star",
+    "pack_id": "1101",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/11_7_Ballot_Breakup.json",
+    "title": "7: Ballot Breakup",
+    "pack_id": "1101",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/11_8_Nice_Girl_Unleashed.json",
+    "title": "8: Nice Girl Unleashed",
+    "pack_id": "1101",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/11_The_Concert.json",
+    "title": "11: The Concert",
+    "pack_id": "101",
+    "episode_id": "11"
+  },
+  {
+    "file": "SHS/12_1_The_New_Head_Cheerleader.json",
+    "title": "1: The New Head Cheerleader",
+    "pack_id": "1201",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/12_2_Date_Auction.json",
+    "title": "2: Date Auction",
+    "pack_id": "1201",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/12_3_Howards_Last_Day.json",
+    "title": "3: Howard's Last Day",
+    "pack_id": "1201",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/12_4_Wilson_Strikes_Back.json",
+    "title": "4: Wilson Strikes Back",
+    "pack_id": "1201",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/12_5_Swim_Team_Trip.json",
+    "title": "5: Swim Team Trip",
+    "pack_id": "1201",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/12_6_The_Island_Party.json",
+    "title": "6: The Island Party",
+    "pack_id": "1201",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/12_7_Howards_College_Tour.json",
+    "title": "7: Howard's College Tour",
+    "pack_id": "1201",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/12_8_A_Kingston_King.json",
+    "title": "8: A Kingston King",
+    "pack_id": "1201",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/12_Best_Party_Ever.json",
+    "title": "12: Best Party Ever",
+    "pack_id": "101",
+    "episode_id": "12"
+  },
+  {
+    "file": "SHS/13_3_Novel.json",
+    "title": " Surviving High School: The Novel",
+    "pack_id": "1301",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/13_4_Getting_Over_Howard.json",
+    "title": "Getting Over Howard",
+    "pack_id": "1301",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/13_Local_Ghosts.json",
+    "title": "13: Local Ghosts",
+    "pack_id": "101",
+    "episode_id": "13"
+  },
+  {
+    "file": "SHS/14_Spud_The_Stud.json",
+    "title": "14: Spud the Stud",
+    "pack_id": "101",
+    "episode_id": "14"
+  },
+  {
+    "file": "SHS/15_Lost_Recipe.json",
+    "title": "15: Lost Recipe",
+    "pack_id": "101",
+    "episode_id": "15"
+  },
+  {
+    "file": "SHS/16_Secret_Ingredient.json",
+    "title": "16: Secret Ingredient",
+    "pack_id": "101",
+    "episode_id": "16"
+  },
+  {
+    "file": "SHS/17_Halloween.json",
+    "title": "17: Halloween",
+    "pack_id": "101",
+    "episode_id": "17"
+  },
+  {
+    "file": "SHS/18_Writers_Block.json",
+    "title": "18: Writer's Block",
+    "pack_id": "101",
+    "episode_id": "18"
+  },
+  {
+    "file": "SHS/19_flex_games.json",
+    "title": "19: Flex Games",
+    "pack_id": "101",
+    "episode_id": "19"
+  },
+  {
+    "file": "SHS/1_1_Magic_School.json",
+    "title": "Magic School: Book 1",
+    "pack_id": "7",
+    "episode_id": "9001"
+  },
+  {
+    "file": "SHS/1_1_Troublemakers.json",
+    "title": "1: Troublemakers",
+    "pack_id": "2001",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/1_2_Dog_Days.json",
+    "title": "2: Dog Days",
+    "pack_id": "2001",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/1_2_Magic_School.json",
+    "title": "Magic School: Book 2",
+    "pack_id": "7",
+    "episode_id": "9002"
+  },
+  {
+    "file": "SHS/1_3_Magic_School.json",
+    "title": "Magic School: Book 3",
+    "pack_id": "7",
+    "episode_id": "9003"
+  },
+  {
+    "file": "SHS/1_3_The_Fashionista.json",
+    "title": "3: The Fashionista",
+    "pack_id": "2001",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/1_4_Spencers_Story.json",
+    "title": "4: Spencer's Story",
+    "pack_id": "2001",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/1_5_The_Breakup.json",
+    "title": "5: The Breakup",
+    "pack_id": "2001",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/1_6_Thepumpkinfarmersdaughter.json",
+    "title": " 6: The Pumpkin Farmer's Daughter",
+    "pack_id": "2001",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/1_7_Thefloat.json",
+    "title": "7: The Float",
+    "pack_id": "2001",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/1_8_Theunusualsuspects.json",
+    "title": "8: The Unusual Suspects",
+    "pack_id": "2001",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/1_9_College_Scavenger_Hunt.json",
+    "title": "College Scavenger Hunt",
+    "pack_id": "1901",
+    "episode_id": "90"
+  },
+  {
+    "file": "SHS/1_Making_Some_Dough.json",
+    "title": "01: Making Some Dough",
+    "pack_id": "101",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/1_Summer_Fling.json",
+    "title": "01: Summer Fling",
+    "pack_id": "10",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/20_Party_Fowl.json",
+    "title": "20: Party Fowl",
+    "pack_id": "101",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/21_Road_Rules.json",
+    "title": "21: Road Rules",
+    "pack_id": "201",
+    "episode_id": "21"
+  },
+  {
+    "file": "SHS/22_winter_queen.json",
+    "title": "22: Winter Queen",
+    "pack_id": "201",
+    "episode_id": "22"
+  },
+  {
+    "file": "SHS/23_Quest_Rewards.json",
+    "title": "23: Quest Rewards",
+    "pack_id": "201",
+    "episode_id": "23"
+  },
+  {
+    "file": "SHS/24_The_Holiday_Party.json",
+    "title": "24: The Holiday Party",
+    "pack_id": "201",
+    "episode_id": "24"
+  },
+  {
+    "file": "SHS/25_Tom_Princes_Carol.json",
+    "title": "25: Tom Prince's Carol",
+    "pack_id": "201",
+    "episode_id": "25"
+  },
+  {
+    "file": "SHS/26_New_Years_Kiss.json",
+    "title": "26: New Year's Kiss",
+    "pack_id": "201",
+    "episode_id": "26"
+  },
+  {
+    "file": "SHS/27_Prank_Wars.json",
+    "title": "27: Prank Wars",
+    "pack_id": "201",
+    "episode_id": "27"
+  },
+  {
+    "file": "SHS/28_Boot_Camp_Breakout.json",
+    "title": "28: Boot Camp Breakout",
+    "pack_id": "201",
+    "episode_id": "28"
+  },
+  {
+    "file": "SHS/29_Guys_Versus_Wild.json",
+    "title": "29: Guys Versus Wild",
+    "pack_id": "201",
+    "episode_id": "29"
+  },
+  {
+    "file": "SHS/2_1_Howards_Return.json",
+    "title": "1: Howard's Return",
+    "pack_id": "1401",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/2_1_The_Tutors.json",
+    "title": "1: The Tutors",
+    "pack_id": "2101",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/2_2_Homecomingkiss.json",
+    "title": "2: Homecoming Kiss",
+    "pack_id": "2101",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/2_2_Swim_Team_Retreat_1.json",
+    "title": "2: Swim Team Retreat, Part 1",
+    "pack_id": "1401",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/2_3_A_Troublemakers_Thanksgiving.json",
+    "title": " 3: A Troublemaker's Thanksgiving",
+    "pack_id": "2002",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/2_3_Swim_Team_Retreat2.json",
+    "title": "3: Swim Team Retreat, Part 2",
+    "pack_id": "1401",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/2_4_Howards_Secret.json",
+    "title": "4: Howard's Secret",
+    "pack_id": "1401",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/2_4_Nates_Revenge.json",
+    "title": "4: Nate's Revenge",
+    "pack_id": "2101",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/2_5_Getaway.json",
+    "title": "5: Getaway",
+    "pack_id": "2101",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/2_5_Psych_Project_Subject_Owen.json",
+    "title": "5: Psych Project, Subject: Owen",
+    "pack_id": "1401",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/2_6_Psych_Project_Subject_Paige.json",
+    "title": " 6: Psych Project, Subject: Paige",
+    "pack_id": "1401",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/2_7_The_Halloween_Dance_Part_1.json",
+    "title": "7: The Halloween Dance, Part 1",
+    "pack_id": "1401",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/2_8_The_Halloween_Dance_Part_2.json",
+    "title": "8: The Halloween Dance, Part 2",
+    "pack_id": "1401",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/2_A_Float_Is_Born.json",
+    "title": "02: A Float Is Born",
+    "pack_id": "101",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/2_As_Time_Goes_By.json",
+    "title": "02: As Time Goes By",
+    "pack_id": "10",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/30_Proof.json",
+    "title": "30: Proof",
+    "pack_id": "201",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/31_Crosstown_Races_Part_1.json",
+    "title": "!31: The Crosstown Races, Part One",
+    "pack_id": "201",
+    "episode_id": "31"
+  },
+  {
+    "file": "SHS/32_Crosstown_Races_Part_2.json",
+    "title": "!32: The Crosstown Races, Part Two",
+    "pack_id": "201",
+    "episode_id": "32"
+  },
+  {
+    "file": "SHS/33_The_Break_Up.json",
+    "title": "33: The Break Up",
+    "pack_id": "201",
+    "episode_id": "33"
+  },
+  {
+    "file": "SHS/34_Andy_Cannelloni_PI.json",
+    "title": "34: Andy Cannelloni, P.I.",
+    "pack_id": "201",
+    "episode_id": "34"
+  },
+  {
+    "file": "SHS/35_Fair_Catch.json",
+    "title": "35: Fair Catch",
+    "pack_id": "201",
+    "episode_id": "35"
+  },
+  {
+    "file": "SHS/36_The_Cheer_Lationship.json",
+    "title": "36: The Cheer-Lationship",
+    "pack_id": "201",
+    "episode_id": "36"
+  },
+  {
+    "file": "SHS/37_The_Prince_Plot_Part_1.json",
+    "title": "37: The Prince Plot, Part One",
+    "pack_id": "201",
+    "episode_id": "37"
+  },
+  {
+    "file": "SHS/38_The_Prince_Plot_Part_2.json",
+    "title": "38: The Prince Plot Part Two",
+    "pack_id": "201",
+    "episode_id": "38"
+  },
+  {
+    "file": "SHS/39_Prom_Night.json",
+    "title": "39: Prom Night",
+    "pack_id": "201",
+    "episode_id": "39"
+  },
+  {
+    "file": "SHS/3_1_Basketball_Tryouts.json",
+    "title": "1: Basketball Tryouts",
+    "pack_id": "1501",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/3_2_The_Dance_Dilemma_Part_1.json",
+    "title": "2: The Dance_Dilemma, Part 1",
+    "pack_id": "1501",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/3_3_The_Dance_Dilemma_Part_2.json",
+    "title": "3: The Dance Dilemma, Part 2",
+    "pack_id": "1501",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/3_4_Paiges_Thanksgiving_Party.json",
+    "title": "4: Paige's Thanksgiving Party",
+    "pack_id": "1501",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/3_5_The_Snow_Ball.json",
+    "title": "5: The Snow Ball, Part 1",
+    "pack_id": "1501",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/3_6_The_Snow_Ball_2.json",
+    "title": "6: The Snow Ball, Part 2",
+    "pack_id": "1501",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/3_7_A_Fallon_Family_Christmas.json",
+    "title": "7: A Fallon Family Christmas",
+    "pack_id": "1501",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/3_8_Howards_Holidays.json",
+    "title": "8: Holiday Special",
+    "pack_id": "1501",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/3_Assembling_The_Team.json",
+    "title": "03: Assembling the Team",
+    "pack_id": "101",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/40_The_Graduation_List.json",
+    "title": "40: The Graduation List",
+    "pack_id": "201",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/41_When_Howard_Met.json",
+    "title": "41: When Howard Met...",
+    "pack_id": "201",
+    "episode_id": "41"
+  },
+  {
+    "file": "SHS/42_Spirit_Week.json",
+    "title": "42: Spirit Week",
+    "pack_id": "301",
+    "episode_id": "42"
+  },
+  {
+    "file": "SHS/43_Love_and_War.json",
+    "title": "43: Love and War",
+    "pack_id": "301",
+    "episode_id": "43"
+  },
+  {
+    "file": "SHS/44_Green_With_Kenji.json",
+    "title": "44: Green With Kenji",
+    "pack_id": "301",
+    "episode_id": "44"
+  },
+  {
+    "file": "SHS/45_foreign_exchange.json",
+    "title": "45: Foreign Exchange",
+    "pack_id": "301",
+    "episode_id": "45"
+  },
+  {
+    "file": "SHS/46_Dance_Dance_Revelation.json",
+    "title": "46: Dance Dance Revelation",
+    "pack_id": "301",
+    "episode_id": "46"
+  },
+  {
+    "file": "SHS/47_Party_Crashers.json",
+    "title": "47: Party Crashers",
+    "pack_id": "301",
+    "episode_id": "47"
+  },
+  {
+    "file": "SHS/48_Sams_Formation.json",
+    "title": "48: Sam's Formation, Part One",
+    "pack_id": "301",
+    "episode_id": "48"
+  },
+  {
+    "file": "SHS/49_Sams_Formation_Part_2.json",
+    "title": "49: Sam's Formation, Part Two",
+    "pack_id": "301",
+    "episode_id": "49"
+  },
+  {
+    "file": "SHS/4_1_Full_Court_Pressure.json",
+    "title": "1: Full Court Pressure",
+    "pack_id": "1601",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/4_1_TheKimiDates.json",
+    "title": "1: The Kimi Dates",
+    "pack_id": "2301",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/4_2_Justthefourofus.json",
+    "title": "2: Just the Four of Us",
+    "pack_id": "2301",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/4_2_Showcase_Sabotage_1.json",
+    "title": "2: Showcase Sabotage, Part 1",
+    "pack_id": "1601",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/4_3_Kimi_Strikes_Back.json",
+    "title": "3: Kimi Strikes Back",
+    "pack_id": "2301",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/4_3_Showcase_Sabotage_2.json",
+    "title": "3: Showcase Sabotage, Part 2",
+    "pack_id": "1601",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/4_4_Girl_Trouble.json",
+    "title": "4: Girl Trouble",
+    "pack_id": "1601",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/4_4_Prom.json",
+    "title": "4: Prom",
+    "pack_id": "2301",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/4_5_Paige_and_Owens_Valentines_Outing.json",
+    "title": "&5: Paige and Owen's Valentine's Outing",
+    "pack_id": "1601",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/4_6_Anti_Valentines_Day.json",
+    "title": "6: Anti-Valentine's Day",
+    "pack_id": "1601",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/4_7_The_Art_Showcase.json",
+    "title": "7: The Art Showcase",
+    "pack_id": "1601",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/4_8_Sectionals.json",
+    "title": "8: Sectionals",
+    "pack_id": "1601",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/4_The_Great_Float_Caper.json",
+    "title": "04: The Great Float Caper",
+    "pack_id": "101",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/50_Surviving_Pet_Society.json",
+    "title": "50: Surviving Pet Society",
+    "pack_id": "301",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/51_Halloween_In_Colt_Blood.json",
+    "title": "51: Halloween: In Colt Blood",
+    "pack_id": "301",
+    "episode_id": "51"
+  },
+  {
+    "file": "SHS/52_Quiz-aster.json",
+    "title": "52: Quiz-aster",
+    "pack_id": "301",
+    "episode_id": "52"
+  },
+  {
+    "file": "SHS/53_Twinstigators.json",
+    "title": "53: Twinstigators",
+    "pack_id": "301",
+    "episode_id": "53"
+  },
+  {
+    "file": "SHS/54_Long_Distance_Relationtrip.json",
+    "title": "54: Long Distance Relation-Trip",
+    "pack_id": "301",
+    "episode_id": "54"
+  },
+  {
+    "file": "SHS/55_Thanksgiving.json",
+    "title": "\"55: Denni and Raven's Thanksgiving",
+    "pack_id": "301",
+    "episode_id": "55"
+  },
+  {
+    "file": "SHS/56_the_truth_about_colt.json",
+    "title": "\"56: The Truth About Colt, Part One",
+    "pack_id": "301",
+    "episode_id": "56"
+  },
+  {
+    "file": "SHS/57_The_Truth_About_Colt_2.json",
+    "title": "\"57: The Truth About Colt, Part Two",
+    "pack_id": "301",
+    "episode_id": "57"
+  },
+  {
+    "file": "SHS/58_Very_Tom_Prince_Holiday.json",
+    "title": "58: A Very Tom Prince Holiday",
+    "pack_id": "301",
+    "episode_id": "58"
+  },
+  {
+    "file": "SHS/59_Bringing_Home_Christmas.json",
+    "title": "59: Bringing Home Christmas",
+    "pack_id": "301",
+    "episode_id": "59"
+  },
+  {
+    "file": "SHS/5_1_The_Play.json",
+    "title": "1: The Play",
+    "pack_id": "1701",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/5_2_Casting_Call.json",
+    "title": "2: Casting Call",
+    "pack_id": "1701",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/5_3_Paigeagainstthemachine.json",
+    "title": "3: Paige Against The Machine",
+    "pack_id": "1701",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/5_4_The_Show_Must_Go_On.json",
+    "title": "4: The Show Must Go On",
+    "pack_id": "1701",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/5_5_Owenseleven.json",
+    "title": "5: Owen's Eleven",
+    "pack_id": "1701",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/5_6_Perfect_Paige.json",
+    "title": "6: Perfect Paige",
+    "pack_id": "1701",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/5_7_Debutantedance1.json",
+    "title": "7: Debutante Dance, Part 1",
+    "pack_id": "1701",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/5_8_Debutantedance2.json",
+    "title": "8: Debutante Dance, Part 2",
+    "pack_id": "1701",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/5_Break_A_Leg.json",
+    "title": "05: Break A Leg",
+    "pack_id": "101",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/60_New_Years_Date.json",
+    "title": "60: New Year's Date",
+    "pack_id": "301",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/61_SKI_TRIP.json",
+    "title": "61: School Ski Trip",
+    "pack_id": "301",
+    "episode_id": "61"
+  },
+  {
+    "file": "SHS/62_Matchmaker.json",
+    "title": "62: The Reluctant Matchmaker",
+    "pack_id": "301",
+    "episode_id": "62"
+  },
+  {
+    "file": "SHS/63_Fight_Nerdy.json",
+    "title": "63: How to Fight Nerdy",
+    "pack_id": "301",
+    "episode_id": "63"
+  },
+  {
+    "file": "SHS/64_The_Kim-Provised_First_Date.json",
+    "title": "64: The Kim-Provised First Date",
+    "pack_id": "401",
+    "episode_id": "24"
+  },
+  {
+    "file": "SHS/65_Valentines.json",
+    "title": "65: Valentine's Dates",
+    "pack_id": "401",
+    "episode_id": "65"
+  },
+  {
+    "file": "SHS/66_Queen_of_Hearts.json",
+    "title": "66: Queen of Hearts",
+    "pack_id": "401",
+    "episode_id": "66"
+  },
+  {
+    "file": "SHS/67_Basketball_Woes.json",
+    "title": "67: Basketball Woes",
+    "pack_id": "401",
+    "episode_id": "67"
+  },
+  {
+    "file": "SHS/68_spring_Break.json",
+    "title": "68: Spring Break Up",
+    "pack_id": "401",
+    "episode_id": "68"
+  },
+  {
+    "file": "SHS/69_Wilson_Highs_Demise.json",
+    "title": "69: Wilson High's Demise",
+    "pack_id": "401",
+    "episode_id": "69"
+  },
+  {
+    "file": "SHS/6_1_Freedom_Festival.json",
+    "title": "1: Freedom Festival",
+    "pack_id": "601",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/6_1_Ready_SET_Go.json",
+    "title": "1: Ready, S.E.T., Go",
+    "pack_id": "1801",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/6_2_Cheer_Off.json",
+    "title": "2: Cheer Off",
+    "pack_id": "1801",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/6_2_Girls_Night_In.json",
+    "title": "2: Girls Night In",
+    "pack_id": "601",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/6_3_Camping_Trip_Visions.json",
+    "title": "3: Camping Trip Visions",
+    "pack_id": "601",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/6_3_Howtodateanerd.json",
+    "title": "3: How to Date a Nerd",
+    "pack_id": "1801",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/6_4_French_Connection.json",
+    "title": "\"4: French Connection, Paris Part 1",
+    "pack_id": "601",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/6_4_This_Friday_Night.json",
+    "title": "4: This Friday Night",
+    "pack_id": "1801",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/6_5_French_Kiss.json",
+    "title": "5: French Kiss, Paris Part 2",
+    "pack_id": "601",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/6_5_TheNewestCheerleader.json",
+    "title": "5: The Newest Cheerleader",
+    "pack_id": "1801",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/6_6_French_Finale.json",
+    "title": "6: French Finale, Paris Part 3",
+    "pack_id": "601",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/6_6_Talent_Search.json",
+    "title": "6: Talent Search",
+    "pack_id": "1801",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/6_7_A_College_Date.json",
+    "title": "7: A College Date",
+    "pack_id": "601",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/6_7_Talent_Show.json",
+    "title": "7: Talent Show",
+    "pack_id": "1801",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/6_8_GraduationStories.json",
+    "title": "8: Graduation Stories",
+    "pack_id": "1801",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/6_8_Hector_Versus_Hector.json",
+    "title": "8: Hector Versus Hector",
+    "pack_id": "601",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/6_The_Outcast.json",
+    "title": "06: The Outcast",
+    "pack_id": "101",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/70_New_Regime.json",
+    "title": "70: The New Regime",
+    "pack_id": "401",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/71_Officer_Montes_Ridealong.json",
+    "title": "71: Officer Monte's Ridealong",
+    "pack_id": "401",
+    "episode_id": "71"
+  },
+  {
+    "file": "SHS/72_Trapped_In_The_Classroom.json",
+    "title": "72: Trapped in the Classroom",
+    "pack_id": "401",
+    "episode_id": "72"
+  },
+  {
+    "file": "SHS/73_School_Rebellion.json",
+    "title": "73: School Rebellion",
+    "pack_id": "401",
+    "episode_id": "73"
+  },
+  {
+    "file": "SHS/74_Good_Chemistry.json",
+    "title": "74: Good Chemistry",
+    "pack_id": "501",
+    "episode_id": "74"
+  },
+  {
+    "file": "SHS/75_Anger_Management.json",
+    "title": "75: Anger Management",
+    "pack_id": "501",
+    "episode_id": "75"
+  },
+  {
+    "file": "SHS/76_Sink_or_Swim.json",
+    "title": "76: Sink or Swim",
+    "pack_id": "501",
+    "episode_id": "76"
+  },
+  {
+    "file": "SHS/77_Tough_Guy_On_Campus.json",
+    "title": "77: Tough Guy on Campus",
+    "pack_id": "501",
+    "episode_id": "77"
+  },
+  {
+    "file": "SHS/78_Justin_for_President.json",
+    "title": "78: Justin for President",
+    "pack_id": "501",
+    "episode_id": "78"
+  },
+  {
+    "file": "SHS/79_Return_of_the_Astrid.json",
+    "title": "79: Return of the Astrid",
+    "pack_id": "501",
+    "episode_id": "79"
+  },
+  {
+    "file": "SHS/7_1_Back_to_School.json",
+    "title": "1: Back to School",
+    "pack_id": "701",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/7_1_SummerBeginnings.json",
+    "title": "1: Summer Beginnings",
+    "pack_id": "1901",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/7_2_Admit_Weekend.json",
+    "title": "2: Admit Weekend",
+    "pack_id": "1901",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/7_2_Homecoming_Princesses.json",
+    "title": "2: Homecoming Princesses",
+    "pack_id": "701",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/7_3_Bens_Blowup.json",
+    "title": "3: Ben's Blowup",
+    "pack_id": "701",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/7_3_Sorority_Showdown.json",
+    "title": "3: Sorority Showdown",
+    "pack_id": "1901",
+    "episode_id": "30"
+  },
+  {
+    "file": "SHS/7_4_Big_Shoes_To_Phil.json",
+    "title": "4: Big Shoes to Phil",
+    "pack_id": "701",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/7_4_RehearsalDinner.json",
+    "title": "4: Rehearsal Dinner",
+    "pack_id": "1901",
+    "episode_id": "40"
+  },
+  {
+    "file": "SHS/7_5_Homecoming_The_Game.json",
+    "title": "5: Homecoming, The Game",
+    "pack_id": "701",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/7_5_WeddingSmashers.json",
+    "title": "5: Wedding Smashers",
+    "pack_id": "1901",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/7_6_College_Stories.json",
+    "title": "6: College Stories",
+    "pack_id": "1901",
+    "episode_id": "60"
+  },
+  {
+    "file": "SHS/7_6_Homecoming_Dance.json",
+    "title": "6: Homecoming, The Dance",
+    "pack_id": "701",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/7_7_Gameofcones1.json",
+    "title": "7: Game Of Cones, Part 1",
+    "pack_id": "1901",
+    "episode_id": "70"
+  },
+  {
+    "file": "SHS/7_7_Nerd_No_More.json",
+    "title": "7: Nerd No More",
+    "pack_id": "701",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/7_8_AClashOfQueens.json",
+    "title": "8: A Clash of Queens",
+    "pack_id": "1901",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/7_8_Halloween_The_Second_Kiss.json",
+    "title": "'8: Halloween: The Second Kiss, Part One",
+    "pack_id": "701",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/7_Surviving_Europe.json",
+    "title": "07: Surviving Europe",
+    "pack_id": "101",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/80_Eriks_Date.json",
+    "title": "80: Erik's Date",
+    "pack_id": "501",
+    "episode_id": "80"
+  },
+  {
+    "file": "SHS/81_Breaking_News.json",
+    "title": "81: Breaking News",
+    "pack_id": "501",
+    "episode_id": "81"
+  },
+  {
+    "file": "SHS/82_Broken_Promises_1.json",
+    "title": "82: Broken Prom-ises, Part 1",
+    "pack_id": "501",
+    "episode_id": "82"
+  },
+  {
+    "file": "SHS/83_Broken_Promises_2.json",
+    "title": "83: Broken Prom-ises, Part Two",
+    "pack_id": "501",
+    "episode_id": "83"
+  },
+  {
+    "file": "SHS/84_Spike_Must_Graduate.json",
+    "title": "84: Spike Must Graduate",
+    "pack_id": "501",
+    "episode_id": "84"
+  },
+  {
+    "file": "SHS/85_Howards_Summer_Bummer.json",
+    "title": "85: Howard's Summer Bummer",
+    "pack_id": "501",
+    "episode_id": "85"
+  },
+  {
+    "file": "SHS/8_1_Halloween_The_Second_Kiss_Part2.json",
+    "title": "'1: Halloween: The Second Kiss, Part Two",
+    "pack_id": "801",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/8_2_Cheerevolution_1.json",
+    "title": "2: Cheerevolution, Part One",
+    "pack_id": "801",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/8_3_Cheerevolution_2.json",
+    "title": "3: Cheerevolution, Part Two",
+    "pack_id": "801",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/8_4_Double_Date.json",
+    "title": "4: Double Date",
+    "pack_id": "801",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/8_5_Thanksgiving_Surprise.json",
+    "title": "5: Thanksgiving Surprise",
+    "pack_id": "801",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/8_6_Taylor_the_Nerd.json",
+    "title": "6: Taylor the Nerd",
+    "pack_id": "801",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/8_7_Secret_Santa_1.json",
+    "title": "7: Secret Santa, Part One",
+    "pack_id": "801",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/8_8_Secret_Santa_2.json",
+    "title": "8: Secret Santa, Part Two",
+    "pack_id": "801",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/8_From_Europe_With_Love.json",
+    "title": "08: From Europe With Love",
+    "pack_id": "101",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/9_1_Christmas_Break.json",
+    "title": "1: Christmas Break",
+    "pack_id": "901",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/9_2_Christmas_Exchange.json",
+    "title": "2: Christmas Exchange",
+    "pack_id": "901",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/9_3_New_Year_s_Parties.json",
+    "title": "3: New Year's Parties",
+    "pack_id": "901",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/9_4_This_is_Spartan.json",
+    "title": "4: This is Spartan",
+    "pack_id": "901",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/9_5_Clash_Of_The_Immortals.json",
+    "title": "5: Clash of the Immortals",
+    "pack_id": "901",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/9_6_Valentines_Dilemma.json",
+    "title": "6: Valentine's Dilemma",
+    "pack_id": "901",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/9_7_Spartan_Love_Story_Part_1.json",
+    "title": "7: A Spartan Love Story, Part 1",
+    "pack_id": "901",
+    "episode_id": "7"
+  },
+  {
+    "file": "SHS/9_8_Spartan_Love_Story_Part_2.json",
+    "title": "8: A Spartan Love Story, Part 2",
+    "pack_id": "901",
+    "episode_id": "8"
+  },
+  {
+    "file": "SHS/9_Skate_Video.json",
+    "title": "09: Skate Video",
+    "pack_id": "101",
+    "episode_id": "9"
+  },
+  {
+    "file": "SHS/A_New_Start_Season_2.json",
+    "title": "A New Start 2: Howard's Return",
+    "pack_id": "1401",
+    "episode_id": "14000"
+  },
+  {
+    "file": "SHS/A_New_Start_Season_3.json",
+    "title": "A New Start 3: Dance Dilemma",
+    "pack_id": "1501",
+    "episode_id": "15000"
+  },
+  {
+    "file": "SHS/A_New_Start_Season_4.json",
+    "title": "\"A New Start 4: Love and Basketball",
+    "pack_id": "1601",
+    "episode_id": "16000"
+  },
+  {
+    "file": "SHS/A_New_Start_Set_5.json",
+    "title": "!A New Start 5: Spring Break Romeo",
+    "pack_id": "1701",
+    "episode_id": "17000"
+  },
+  {
+    "file": "SHS/amanda_valentines.json",
+    "title": "Amanda's Valentine's Day",
+    "pack_id": "7",
+    "episode_id": "2004"
+  },
+  {
+    "file": "SHS/Battleoftheschoolsgirl.json",
+    "title": "Battle of the Schools: Girl",
+    "pack_id": "300",
+    "episode_id": "314"
+  },
+  {
+    "file": "SHS/Battleoftheschoolsguy.json",
+    "title": "Battle of the Schools: Guy",
+    "pack_id": "300",
+    "episode_id": "315"
+  },
+  {
+    "file": "SHS/Best_Party_Ever.json",
+    "title": "Best Party Ever",
+    "pack_id": "10",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/Big_Man_On_Campus.json",
+    "title": "Football: Big Man On Campus",
+    "pack_id": "7",
+    "episode_id": "999"
+  },
+  {
+    "file": "SHS/Dancing_Queen.json",
+    "title": "Homecoming Queen",
+    "pack_id": "5",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/Football_king_of_spring_break.json",
+    "title": "Football: King of Spring Break",
+    "pack_id": "7",
+    "episode_id": "1007"
+  },
+  {
+    "file": "SHS/Football_Valentines_Carnival.json",
+    "title": "Football: Valentine's Carnival",
+    "pack_id": "7",
+    "episode_id": "1003"
+  },
+  {
+    "file": "SHS/Fourth_of_July_2010.json",
+    "title": "Fourth of July Flashback",
+    "pack_id": "100",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/Halloween_MTX.json",
+    "title": "Football: Halloween",
+    "pack_id": "7",
+    "episode_id": "1009"
+  },
+  {
+    "file": "SHS/lauren.json",
+    "title": "Lauren's Story",
+    "pack_id": "2401",
+    "episode_id": "20"
+  },
+  {
+    "file": "SHS/MTX_Dr_Pepper_1.json",
+    "title": "The Mistletoe Match",
+    "pack_id": "5000",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/MTX_Dr_Pepper_2.json",
+    "title": "New Year's Connection",
+    "pack_id": "5000",
+    "episode_id": "2"
+  },
+  {
+    "file": "SHS/MTX_Dr_Pepper_3.json",
+    "title": "A Tom Prince New Year's Eve",
+    "pack_id": "5000",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/MTX_Dr_Pepper_4.json",
+    "title": "Officer Monte's New Year's Bash",
+    "pack_id": "5000",
+    "episode_id": "4"
+  },
+  {
+    "file": "SHS/MTX_Dr_Pepper_5.json",
+    "title": "Christmas in Helzeroth",
+    "pack_id": "5000",
+    "episode_id": "5"
+  },
+  {
+    "file": "SHS/MTX_Easter_Egg_Hunt.json",
+    "title": "Easter Egg Hunt",
+    "pack_id": "7",
+    "episode_id": "2008"
+  },
+  {
+    "file": "SHS/MTX_Fathers_Day.json",
+    "title": "Special: Father's Day",
+    "pack_id": "1201",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/MTX_Gossip_Files.json",
+    "title": "Gossip Files",
+    "pack_id": "100",
+    "episode_id": "101"
+  },
+  {
+    "file": "SHS/MTX_Hectors_Guide_To_Girls.json",
+    "title": "Hector's Guide To Girls",
+    "pack_id": "7",
+    "episode_id": "1000"
+  },
+  {
+    "file": "SHS/MTX_Holiday_Cheer.json",
+    "title": "Holiday Cheer",
+    "pack_id": "7",
+    "episode_id": "1005"
+  },
+  {
+    "file": "SHS/MTX_Holiday_Short_Stories.json",
+    "title": "Holiday Short Stories",
+    "pack_id": "7",
+    "episode_id": "2001"
+  },
+  {
+    "file": "SHS/mtx_love_potion_pack.json",
+    "title": "Love Potion Fun Pack",
+    "pack_id": "7",
+    "episode_id": "1001"
+  },
+  {
+    "file": "SHS/MTX_Pranksgiving.json",
+    "title": "Pranksgiving",
+    "pack_id": "7",
+    "episode_id": "1004"
+  },
+  {
+    "file": "SHS/MTX_ROMEO_AND_JULIET.json",
+    "title": "Romeo and Juliet",
+    "pack_id": "7",
+    "episode_id": "3000"
+  },
+  {
+    "file": "SHS/MTX_SNG_3_The_Sinking_Schools.json",
+    "title": ")The Super New Girl 3: The Sinking Schools",
+    "pack_id": "7",
+    "episode_id": "2010"
+  },
+  {
+    "file": "SHS/MTX_SNG_4_Dyre.json",
+    "title": "#The Super New Girl 4: Reign of Dyre",
+    "pack_id": "7",
+    "episode_id": "2012"
+  },
+  {
+    "file": "SHS/MTX_SNG_The_Floating_Isle.json",
+    "title": "The Floating Isle",
+    "pack_id": "7",
+    "episode_id": "2003"
+  },
+  {
+    "file": "SHS/MTX_Story_Vote_Ticket.json",
+    "title": "Story Vote Ticket",
+    "pack_id": "23345",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/MTX_Super_New_Girl.json",
+    "title": "The Super New Girl",
+    "pack_id": "7",
+    "episode_id": "2002"
+  },
+  {
+    "file": "SHS/MTX_The_Storm_Part_1.json",
+    "title": "Special: The Storm, Part 1",
+    "pack_id": "7",
+    "episode_id": "200"
+  },
+  {
+    "file": "SHS/MTX_The_Storm_Part_2.json",
+    "title": "Special: The Storm, Part 2",
+    "pack_id": "7",
+    "episode_id": "210"
+  },
+  {
+    "file": "SHS/Novel_Bonus_Content.json",
+    "title": "Special Novel Chapter",
+    "pack_id": "7",
+    "episode_id": "230"
+  },
+  {
+    "file": "SHS/OMG_St_Patricks_Day.json",
+    "title": "O.M.G.! It's St. Patrick's Day!",
+    "pack_id": "7",
+    "episode_id": "2005"
+  },
+  {
+    "file": "SHS/Sam3.json",
+    "title": "Sam Large Vote Package",
+    "pack_id": "3000",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/Sara3.json",
+    "title": "Sara Large Vote Package",
+    "pack_id": "4000",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/seriesfinale.json",
+    "title": "Series Finale",
+    "pack_id": "2301",
+    "episode_id": "50"
+  },
+  {
+    "file": "SHS/Set_10.json",
+    "title": "Set 10: The Spartan Games",
+    "pack_id": "10000",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/Set_11.json",
+    "title": "Set 11: The Election",
+    "pack_id": "11000",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/Set_12.json",
+    "title": "Set 12: Howard's Goodbye",
+    "pack_id": "12000",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/Set_9.json",
+    "title": "Set 9: Colt, Reformed",
+    "pack_id": "9000",
+    "episode_id": "1"
+  },
+  {
+    "file": "SHS/SHS_Season_1.json",
+    "title": "Season 1: A New Start",
+    "pack_id": "1201",
+    "episode_id": "6"
+  },
+  {
+    "file": "SHS/SHS_The_New_Girl.json",
+    "title": "The New Girl",
+    "pack_id": "5",
+    "episode_id": "9"
+  },
+  {
+    "file": "SHS/sierra.json",
+    "title": "Sierra's Challenge",
+    "pack_id": "2401",
+    "episode_id": "10"
+  },
+  {
+    "file": "SHS/Taylor3.json",
+    "title": "Taylor Large Vote Package",
+    "pack_id": "1000",
+    "episode_id": "3"
+  },
+  {
+    "file": "SHS/The_Conned_Artist_1_Promotion.json",
+    "title": "The Conned Artist, Part 1",
+    "pack_id": "7",
+    "episode_id": "4000"
+  },
+  {
+    "file": "SHS/The_Conned_Artist_2_Promotion.json",
+    "title": "The Conned Artist, Part 2",
+    "pack_id": "7",
+    "episode_id": "4010"
+  },
+  {
+    "file": "SHS/The_New_Girl.json",
+    "title": "The New Girl",
+    "pack_id": "5",
+    "episode_id": "9"
+  },
+  {
+    "file": "SHS/Troublemakers_Season_2.json",
+    "title": "Troublemakers 2: Holiday Hearts",
+    "pack_id": "2001",
+    "episode_id": "22000"
+  },
+  {
+    "file": "SHS/Troublemakers_Season_3.json",
+    "title": " Troublemakers 3: Secrets Exposed",
+    "pack_id": "2001",
+    "episode_id": "24000"
+  },
+  {
+    "file": "SHS/What_Happened_To_Colt_1.json",
+    "title": "What Happened To Colt, Part 1",
+    "pack_id": "7",
+    "episode_id": "2000"
+  },
+  {
+    "file": "SHS/Zoe3.json",
+    "title": "Zoe Large Vote Package",
+    "pack_id": "2000",
+    "episode_id": "3"
+  }
+]
