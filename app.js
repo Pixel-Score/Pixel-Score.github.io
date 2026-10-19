@@ -1250,7 +1250,7 @@ async function loadUrl(path, fromHash) {
 function loadFile(file) {
   const rd = new FileReader();
   rd.onload = () => {
-    try { loadModel(JSON.parse(rd.result), file.name, null, false); $('#epSelect').value = ''; }
+    try { loadModel(JSON.parse(rd.result), file.name, null, false); setEpValue(''); }
     catch (err) { showError(`${file.name} is not valid JSON: ${err.message}`); }
   };
   rd.readAsText(file);
@@ -1354,33 +1354,150 @@ function gameOfPath(path) { return catalog.games.find(g => g.seasons.some(s => s
 function fillGameSelect(gameId) {
   const gs = $('#gameSelect');
   gs.textContent = '';
+  // The game box only filters the episode list; "All games" (the default) lists everything.
+  gs.append(Object.assign(el('option', null, 'All games'), { value: '' }));
   for (const g of catalog.games) { const o = el('option', null, g.title); o.value = g.id; gs.append(o); }
   gs.hidden = catalog.games.length < 2;
   let pick = gameId;
   if (pick == null) { try { pick = localStorage.getItem('shs-map-game'); } catch {} }
-  if (!catalog.games.some(g => g.id === pick)) pick = catalog.games[0]?.id ?? '';
+  if (!catalog.games.some(g => g.id === pick)) pick = '';
   gs.value = pick;
   fillEpisodeSelect(pick);
 }
 
+// ---- searchable episode picker (combobox + listbox)
+// Lists every episode (or only the game chosen in the game box), grouped by season; typing narrows that list.
+// Each word must appear in the title, file name, season or game name; numbers match season/episode ("s2 4", "e10").
+const epPick = { value: '', game: '', active: -1, items: [] };
+
+function findEpisode(path) {
+  for (const g of catalog.games) for (const s of g.seasons) for (const e of s.episodes) if (e.path === path) return { g, s, e };
+  return null;
+}
+
 function fillEpisodeSelect(gameId) {
-  const sel = $('#epSelect');
-  const keep = sel.value;
-  sel.textContent = '';
-  sel.append(Object.assign(el('option', null, catalog.games.length ? 'Choose an episode…' : 'No episodes listed'), { value: '' }));
-  const g = catalog.games.find(x => x.id === gameId);
-  if (g) for (const s of g.seasons) {
-    const grp = document.createElement('optgroup'); grp.label = s.title;
-    for (const e of s.episodes) { const o = el('option', null, e.title); o.value = e.path; grp.append(o); }
-    sel.append(grp);
+  epPick.game = gameId;
+  setEpValue(epPick.value);
+  if (!$('#epPop').hidden) renderEpList();
+}
+
+function setEpValue(path) {
+  epPick.value = path || '';
+  const f = findEpisode(epPick.value);
+  const txt = f ? f.e.title : state.model && !epPick.value ? 'Local file' : catalog.games.length ? 'Choose an episode…' : 'No episodes listed';
+  $('#epBtnText').textContent = txt;
+  $('#epBtn').title = f ? `${f.g.title}, ${f.s.title}: ${f.e.title}` : 'Episode';
+}
+
+function epMatches(q) {
+  const words = (q || '').toLowerCase().replace(/\b(s|season|e|ep|episode)\s*(\d+)/g, '$1$2').split(/\s+/).filter(Boolean);
+  const out = [];
+  for (const g of catalog.games) if (!epPick.game || g.id === epPick.game) for (const s of g.seasons) for (const e of s.episodes) {
+    const hay = `${g.id} ${g.title} ${s.title} ${e.title} ${e.name}`.toLowerCase();
+    const sn = firstNum(s.id), en = e.order;
+    const ok = words.every(w => {
+      let m;
+      if ((m = /^(?:s|season)(\d+)$/.exec(w))) return sn === +m[1];
+      if ((m = /^(?:e|ep|episode)(\d+)$/.exec(w))) return en === +m[1];
+      if (/^\d+$/.test(w) && en === +w) return true;
+      return hay.includes(w);
+    });
+    if (ok) out.push({ g, s, e });
   }
-  if ([...sel.options].some(o => o.value === keep)) sel.value = keep;
+  return out;
+}
+
+function markText(text, q) {
+  const frag = document.createDocumentFragment();
+  const words = q.toLowerCase().split(/\s+/).filter(w => w.length > 1 && !/^(s|e|ep|season|episode)?\d+$/.test(w));
+  if (!words.length) { frag.append(text); return frag; }
+  const re = new RegExp('(' + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'ig');
+  text.split(re).forEach((part, i) => frag.append(i % 2 ? el('mark', null, part) : part));
+  return frag;
+}
+
+function renderEpList() {
+  const list = $('#epList'), q = $('#epSearch').value.trim();
+  list.textContent = '';
+  const rows = epMatches(q);
+  const multiGame = !epPick.game && catalog.games.length > 1;
+  epPick.items = [];
+  let lastGrp = null;
+  rows.forEach(r => {
+    const grp = (multiGame ? `${r.g.id || r.g.title} · ` : '') + r.s.title;
+    if (grp !== lastGrp) { list.append(Object.assign(el('li', 'grp', grp), { role: 'presentation' })); lastGrp = grp; }
+    const li = el('li');
+    li.id = 'ep-opt-' + epPick.items.length;
+    li.setAttribute('role', 'option');
+    li.setAttribute('aria-selected', String(r.e.path === epPick.value));
+    li.dataset.path = r.e.path;
+    li.append(el('span', null)); li.firstChild.append(markText(r.e.title, q));
+    li.title = r.e.path.replace(/^episodes\//, '');
+    list.append(li);
+    epPick.items.push(li);
+  });
+  if (!rows.length) list.append(el('li', 'none', !catalog.games.length ? 'No episodes listed in episodes/index.json'
+    : q ? `No episodes match "${q}"` : 'No episodes in this game'));
+  const total = catalog.games.filter(g => !epPick.game || g.id === epPick.game).reduce((n, g) => n + g.seasons.reduce((m, s) => m + s.episodes.length, 0), 0);
+  $('#epCount').textContent = q ? `${rows.length} of ${total} episodes` : `${total} episode${total === 1 ? '' : 's'}`;
+  const cur = epPick.items.findIndex(li => li.dataset.path === epPick.value);
+  setEpActive(q ? 0 : Math.max(0, cur), !q);
+}
+
+function setEpActive(i, center) {
+  epPick.items.forEach(li => li.classList.remove('active'));
+  epPick.active = epPick.items.length ? Math.max(0, Math.min(i, epPick.items.length - 1)) : -1;
+  const li = epPick.items[epPick.active];
+  const inp = $('#epSearch');
+  if (!li) { inp.removeAttribute('aria-activedescendant'); return; }
+  li.classList.add('active');
+  inp.setAttribute('aria-activedescendant', li.id);
+  li.scrollIntoView({ block: center ? 'center' : 'nearest' });
+}
+
+function openEpPicker() {
+  $('#epPop').hidden = false; $('#epBtn').setAttribute('aria-expanded', 'true');
+  $('#epSearch').value = ''; renderEpList(); $('#epSearch').focus();
+}
+function closeEpPicker(refocus) {
+  if ($('#epPop').hidden) return;
+  $('#epPop').hidden = true; $('#epBtn').setAttribute('aria-expanded', 'false');
+  if (refocus) $('#epBtn').focus();
+}
+function chooseEpisode(path) {
+  closeEpPicker(true);
+  if (!path || (path === epPick.value && state.epPath === path)) return;
+  history.replaceState(null, '', '#');
+  loadUrl(path, false);
+}
+
+function initEpPicker() {
+  $('#epBtn').onclick = () => ($('#epPop').hidden ? openEpPicker() : closeEpPicker(true));
+  $('#epBtn').onkeydown = e => { if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); e.stopPropagation(); openEpPicker(); } };
+  $('#epSearch').oninput = renderEpList;
+  $('#epSearch').onkeydown = e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setEpActive(epPick.active + 1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setEpActive(epPick.active - 1); }
+    else if (e.key === 'PageDown') { e.preventDefault(); setEpActive(epPick.active + 8); }
+    else if (e.key === 'PageUp') { e.preventDefault(); setEpActive(epPick.active - 8); }
+    else if (e.key === 'Enter') { e.preventDefault(); const li = epPick.items[epPick.active]; if (li) chooseEpisode(li.dataset.path); }
+    else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeEpPicker(true); }
+    else if (e.key === 'Tab') closeEpPicker(false);
+  };
+  $('#epList').onmousedown = e => e.preventDefault();   // keep focus in the search box
+  $('#epList').onclick = e => { const li = e.target.closest('[role="option"]'); if (li) chooseEpisode(li.dataset.path); };
+  $('#epList').onmousemove = e => { const li = e.target.closest('[role="option"]'); if (li) setEpActive(epPick.items.indexOf(li)); };
+  document.addEventListener('pointerdown', e => { if (!$('#epPicker').contains(e.target)) closeEpPicker(false); });
 }
 
 function syncPickers(path) {
   const g = gameOfPath(path);
-  if (g && $('#gameSelect').value !== g.id) { $('#gameSelect').value = g.id; fillEpisodeSelect(g.id); }
-  $('#epSelect').value = path || '';
+  if (g && epPick.game && epPick.game !== g.id) {
+    $('#gameSelect').value = g.id;
+    try { localStorage.setItem('shs-map-game', g.id); } catch {}
+    epPick.game = g.id;
+  }
+  setEpValue(path);
 }
 
 function closeSideNarrow() { $('#side').classList.remove('open'); }
@@ -1388,7 +1505,7 @@ function closeSideNarrow() { $('#side').classList.remove('open'); }
 // ------------------------------------------------------------------ events
 function initEvents() {
   $('#gameSelect').onchange = e => { try { localStorage.setItem('shs-map-game', e.target.value); } catch {} fillEpisodeSelect(e.target.value); };
-  $('#epSelect').onchange = e => { if (e.target.value) { history.replaceState(null, '', '#'); loadUrl(e.target.value, false); } };
+  initEpPicker();
   $('#fileInput').onchange = e => { if (e.target.files[0]) loadFile(e.target.files[0]); e.target.value = ''; };
   document.querySelectorAll('#viewSeg button').forEach(b => b.onclick = () => {
     if (!state.model) return;

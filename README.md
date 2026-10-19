@@ -22,10 +22,13 @@ episodes/
   SHS/Season 2/...
   COD/Season 1/...
 ```
-The **Game** picker (Surviving High School / Cause of Death) appears when more than one game has
-episodes, and remembers your last choice. The episode list is grouped by season (natural order, so
-Season 10 follows Season 9) and sorted by the decoder's `episode_id`, else the number the file name
-starts with. Titles come from the JSON's `episode` field, else the file name.
+The episode picker lists every episode, grouped by game and season (natural order, so Season 10
+follows Season 9) and sorted by the decoder's `episode_id`, else the number the file name starts with.
+Titles come from the JSON's `episode` field, else the file name. Type in its search box to narrow the
+list: part of a title, file name, season or game (`prom`, `cod`), or numbers (`s2 4`, `e10`,
+`season 1 3`). Arrow keys and Enter pick, Esc closes. When more than one game has episodes, the game
+box next to it (All games / Surviving High School / Cause of Death) limits the list to one game and
+remembers your choice.
 
 If `index.json` is missing or empty and the site is served from `*.github.io`, the page lists the
 repo's `episodes/` folder through the public GitHub API instead (public repos only, 60 requests an

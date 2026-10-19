@@ -16,9 +16,18 @@
   <h1 class="brand">SHS Story Map</h1>
   <div class="bar-group">
     <label class="sr" for="gameSelect">Game</label>
-    <select id="gameSelect" title="Game" hidden></select>
-    <label class="sr" for="epSelect">Episode</label>
-    <select id="epSelect" title="Episode"><option value="">Choose an episode…</option></select>
+    <select id="gameSelect" title="Show episodes from" hidden></select>
+    <div class="ep-picker" id="epPicker">
+      <button class="ep-btn" id="epBtn" type="button" aria-haspopup="listbox" aria-expanded="false" title="Episode">
+        <span id="epBtnText">Choose an episode…</span><span class="caret" aria-hidden="true">▾</span>
+      </button>
+      <div class="ep-pop" id="epPop" hidden>
+        <input type="search" id="epSearch" placeholder="Search episodes" autocomplete="off" spellcheck="false"
+          role="combobox" aria-label="Search episodes" aria-controls="epList" aria-expanded="true" aria-autocomplete="list">
+        <ul id="epList" role="listbox" aria-label="Episodes"></ul>
+        <div class="ep-count" id="epCount" aria-live="polite"></div>
+      </div>
+    </div>
     <label class="btn" title="Open a decoded episode JSON from your computer">
       Open JSON<input type="file" id="fileInput" accept=".json,application/json" hidden>
     </label>
